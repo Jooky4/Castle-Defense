@@ -18,6 +18,8 @@ public class MoveController : MonoBehaviour
 
     private float speed;
 
+    [Header("Аниматор")]
+    [SerializeField]
     private Animator animator;
 
     private void Start()
