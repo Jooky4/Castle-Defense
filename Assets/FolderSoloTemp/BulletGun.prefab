@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFire: 0
-  speed: 4
+  speed: 5
   particleSys: {fileID: 0}
 --- !u!1 &3676524079710254583
 GameObject:

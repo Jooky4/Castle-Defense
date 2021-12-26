@@ -98,53 +98,53 @@ public class GameController : MonoBehaviour
     /// <summary>
     /// поиск цели
     /// </summary>
-    public Transform GetNewTarget(Transform positionObject)
-    {
-        Transform currentPosition = null;
+    //public Transform GetNewTarget(Transform positionObject)
+    //{
+    //    Transform currentPosition = null;
 
-        if (arrayAirs.Count > 0)
-        {
-            float lastPosition = 100;
+    //    if (arrayAirs.Count > 0)
+    //    {
+    //        float lastPosition = 100;
 
-            foreach (Transform currentBaloon in arrayAirs)
-            {
-                Transform currentChildBaloon = currentBaloon.GetComponentInChildren<AirScript>().gameObject.transform;
-                float currentDistance = Vector3.Distance(currentChildBaloon.position, positionObject.position);
+    //        foreach (Transform currentBaloon in arrayAirs)
+    //        {
+    //            //Transform currentChildBaloon = currentBaloon.GetComponentInChildren<AirScript>().gameObject.transform;
+    //            float currentDistance = Vector3.Distance(currentChildBaloon.position, positionObject.position);
 
-                if (currentChildBaloon.gameObject.activeInHierarchy)
-                {
-                    if (lastPosition > currentDistance)
-                    {
-                        currentPosition = currentChildBaloon;
-                        lastPosition = currentDistance;
-                    }
-                }
-            }
+    //            if (currentChildBaloon.gameObject.activeInHierarchy)
+    //            {
+    //                if (lastPosition > currentDistance)
+    //                {
+    //                    currentPosition = currentChildBaloon;
+    //                    lastPosition = currentDistance;
+    //                }
+    //            }
+    //        }
 
-        }
-        return currentPosition;
-    }
+    //    }
+    //    return currentPosition;
+    //}
 
-    public Transform GetNewTargetRamdom(Transform positionObject)
-    {
-        Transform currentPosition = null;
-        // if (arrayAirs.Count > 0)
-        foreach (Transform currentBaloon in arrayAirs)
-        {
-            Transform targetPosition = arrayAirs[Random.Range(0, arrayAirs.Count)];
+    //public Transform GetNewTargetRamdom(Transform positionObject)
+    //{
+    //    Transform currentPosition = null;
+    //    // if (arrayAirs.Count > 0)
+    //    foreach (Transform currentBaloon in arrayAirs)
+    //    {
+    //        Transform targetPosition = arrayAirs[Random.Range(0, arrayAirs.Count)];
 
-            if (targetPosition.GetComponentInChildren<AirScript>())
-            {
-                targetPosition = targetPosition.GetComponentInChildren<AirScript>().gameObject.transform;
+    //        if (targetPosition.GetComponentInChildren<AirScript>())
+    //        {
+    //            targetPosition = targetPosition.GetComponentInChildren<AirScript>().gameObject.transform;
 
-                if (targetPosition.gameObject.activeInHierarchy)
-                {
-                    return targetPosition;
-                }
-            }
-        }
-        return currentPosition;
-    }
+    //            if (targetPosition.gameObject.activeInHierarchy)
+    //            {
+    //                return targetPosition;
+    //            }
+    //        }
+    //    }
+    //    return currentPosition;
+    //}
 
     private void Update()
     {

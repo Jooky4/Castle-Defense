@@ -1,6 +1,9 @@
+//скрипт висит на платформе с пушкой
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+
 
 public class ShotGun : MonoBehaviour
 {
@@ -17,43 +20,40 @@ public class ShotGun : MonoBehaviour
     private void Start()
     {
         platformGun = GetComponent<PlatformGun>();
-        InvokeRepeating("ShotingGun", 0, timeShoot);
+        StartCoroutine(ShotingGun());             // запуск стрельбы
     }
 
-    private void Update()
+    /// <summary>
+    /// стрельба из пушки
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator ShotingGun()
     {
-        //    if (!isFire)
-        //    {
-        //        ShotingGun();
-        //    }
-    }
-
-    void ShotingGun()
-    {
-        //Transform bulletGun = platformGun.bulletGun;
-
-        int countBulletgun = platformGun.countBulletGun;
-
-        if (countBulletgun > 0)
+        while (true)
         {
-            platformGun.poolBulletGun[indexPoolBulletGun].GetComponent<BulletGun>().isFire = true;
+            int countBulletgun = platformGun.countBulletGun;
 
-            indexPoolBulletGun++;
-
-            if (indexPoolBulletGun < platformGun.poolBulletGun.Length)
+            if (countBulletgun > 0)
             {
+                platformGun.poolBulletGun[indexPoolBulletGun].GetComponent<BulletGun>().isFire = true;   // берем снаряд из пула стреляем 
 
+                indexPoolBulletGun++;      // увеличиваем индекс массива
+
+                if (indexPoolBulletGun < platformGun.poolBulletGun.Length)
+                {
+
+                }
+                else
+                {
+                    indexPoolBulletGun = 0;    // чтобы небыло переполнения
+                }
+
+                platformGun.countBulletGun--;  
+
+                Debug.Log(" SHOTGUN ");
             }
-            else
-            {
-                indexPoolBulletGun = 0;
-            }
+            yield return new WaitForSeconds(timeShoot);    // ждем 
 
-            platformGun.countBulletGun--;
-
-            Debug.Log(" SHOTGUN ");
         }
     }
-
-
 }

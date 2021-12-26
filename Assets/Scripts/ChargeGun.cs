@@ -1,7 +1,13 @@
+
+// скрипт висит на платформе с пушкой
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// зарядка пушки
+/// </summary>
 public class ChargeGun : MonoBehaviour
 {
     private PlatformGun platformGun;
@@ -15,14 +21,18 @@ public class ChargeGun : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        checkerItem = collision.gameObject.GetComponent<CheckerItem>();
+        checkerItem = collision.gameObject.GetComponent<CheckerItem>();   
 
-        if (checkerItem)
+        if (checkerItem)  // если это игрок 
         {
-            ChargingGun();
+            ChargingGun(); //забираем у него снаряды
         }
     }
 
+
+    /// <summary>
+    /// Зарядка пушки
+    /// </summary>
     private void ChargingGun()
     {
         if (checkerItem.countItem > 0)
