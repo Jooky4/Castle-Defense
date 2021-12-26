@@ -1,3 +1,5 @@
+
+//скрипт Весит на игроке.
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +12,7 @@ public enum TypeOfPlayer
 }
 
 /// <summary>
-/// Весит на игроке. Соберает предметы
+///  Соберает предметы
 /// </summary>
 public class CheckerItem : MonoBehaviour
 {
@@ -22,6 +24,11 @@ public class CheckerItem : MonoBehaviour
     [HideInInspector]
     public bool isAddAir;
 
+
+    /// <summary>
+    /// если это предмет bullet то собираем
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<Bullet>())
@@ -35,6 +42,11 @@ public class CheckerItem : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// добавление кол ва предметов игроку
+    /// </summary>
+    /// <param name="other"></param>
     void AddItem(Collider other)
     {
         countItem++;

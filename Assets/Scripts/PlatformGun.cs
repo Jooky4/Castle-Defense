@@ -1,16 +1,21 @@
+
+// скрипт висит на платформе с пушкой
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// основные хар-ки и создание пула снарядов
+/// </summary>
 public class PlatformGun : MonoBehaviour
 {
     [SerializeField]
     [Header("Ствол пушки")]
-    //private GameObject gunPoint;
     private Transform gunPoint;
 
     //[HideInInspector]
-    public int countBulletGun;
+    public int countBulletGun;  
 
     [Header("Префаб снаряда пушки")]
     [SerializeField]
@@ -19,14 +24,15 @@ public class PlatformGun : MonoBehaviour
     [HideInInspector]
     public Transform[] poolBulletGun;
 
-
-    public int indexPoolBulletGun;
-
     private void Start()
     {
-        InstantiateBulletGun();
+        InstantiateBulletGun(); 
     }
 
+
+    /// <summary>
+    /// Пул снарядов пушки
+    /// </summary>
     private void InstantiateBulletGun()
     {
         int volumeBulletGun = 10;

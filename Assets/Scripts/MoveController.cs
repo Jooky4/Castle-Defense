@@ -1,3 +1,4 @@
+//висит на игроке
 // движение персонажа
 using System.Collections;
 using System.Collections.Generic;
@@ -19,31 +20,20 @@ public class MoveController : MonoBehaviour
 
     private Animator animator;
 
-    //private CheckerAir checkerAirPlayer;
-
-    private void Awake()
-    {
-
-    }
-
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        //checkerAirPlayer = GetComponent<CheckerAir>();
-    }
-
-    private void Update()
-    {
-
     }
 
     void FixedUpdate()
     {
        //if (!GameController.Instance) return;
-
         Move();
     }
 
+    /// <summary>
+    /// двигаем игрока
+    /// </summary>
     private void Move()
     {
         float horizMove = JoystickStick.Instance.VerticalAxis();

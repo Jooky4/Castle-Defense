@@ -1,3 +1,5 @@
+
+// скрипт висит на снаряде пушки
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,22 +19,28 @@ public class BulletGun : MonoBehaviour
 
     void Start()
     {
-        beginPositionBulletGun = gameObject.transform.position;
+        beginPositionBulletGun = gameObject.transform.position;   //сохр нач позицию
     }
 
     void Update()
     {
         if (isFire)
         {
-            transform.Translate(Vector3.left * Time.deltaTime * speed);
+            transform.Translate(Vector3.left * Time.deltaTime * speed);      // огонь и летим
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         BulletHit();
+
+        //DeActivatedBot(other);
     }
 
+
+    /// <summary>
+    /// поподание в обьект
+    /// </summary>
     void BulletHit()
     {
         isFire = false;
@@ -44,6 +52,15 @@ public class BulletGun : MonoBehaviour
             particleSys.Play();
         }
         Debug.Log(" Hit ");
+    }
+
+    void DeActivatedBot(Collider other)
+    {
+        if (other.GetComponent<EnemyController>())
+        {
+            other.gameObject.SetActive(false);
+
+        }
     }
 
 }
