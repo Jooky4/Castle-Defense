@@ -9,12 +9,12 @@ using UnityEngine.AI;
 /// </summary>
 public class EnemyController : MonoBehaviour
 {
-    enum ModeBot
-    {
-        MinDist,
-        Random,
-        FollowPlayer
-    }
+    //enum ModeBot
+    //{
+    //    MinDist,
+    //    Random,
+    //    FollowPlayer
+    //}
 
     [HideInInspector]
     public NavMeshAgent navMeshAgent;
@@ -22,7 +22,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private Transform currentTarget;   // текущая цель
 
-    //[SerializeField]
+    [Header("Аниматор")]
+    [SerializeField]
     private Animator animator;
 
     [Header("Начальная скорость перемещения")]

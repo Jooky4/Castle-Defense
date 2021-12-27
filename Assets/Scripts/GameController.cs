@@ -20,18 +20,18 @@ public class GameController : MonoBehaviour
 
     public static GameController Instance;
 
-    [Header("ссылка на игрока")]
-    public GameObject player;
+    //[Header("ссылка на игрока")]
+    //public GameObject player;
 
-    [HideInInspector]
-    public CheckerItem checkerAirPlayer;
+    //[HideInInspector]
+    //public CheckerItem checkerAirPlayer;
 
-    [Header("Массив противников ")]
-    [SerializeField]
-    private List<GameObject> arrayEnemys;
+    //[Header("Массив противников ")]
+    //[SerializeField]
+    //private List<GameObject> arrayEnemys;
 
-    [Header("Массив воздуха")]
-    public List<Transform> arrayAirs;
+   // [Header("Массив воздуха")]
+   // public List<Transform> arrayAirs;
 
     //[Header("Ссыль на панель результата")]
     //[SerializeField]
@@ -55,25 +55,18 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private float delayOnPanelWinLose = 1.0f;
 
-    [Header("Таймер респавна шара после удаления")]
-    public float timeActived = 2.0f;
+    //[Header("Таймер респавна шара после удаления")]
+    //public float timeActived = 2.0f;
 
     //[HideInInspector]
     public bool isPlayGame;
 
-    // [HideInInspector]
+    [HideInInspector]
     public StateGame stateGame;
 
 
-    public int countAirPlayer
-    {
-        get
-        {
-            return 0 ;// checkerAirPlayer.countAir;
-        }
-
-    }
-
+    public int currentHealthCastle;
+  
     void Awake()
     {
         if (Instance == null)
@@ -89,7 +82,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        checkerAirPlayer = player.GetComponent<CheckerItem>();
+       // checkerAirPlayer = player.GetComponent<CheckerItem>();
         // Time.timeScale = 0;
         isPlayGame = false;
         stateGame = StateGame.Game;

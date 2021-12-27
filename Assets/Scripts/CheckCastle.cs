@@ -6,9 +6,9 @@ using UnityEngine;
 
 
 /// <summary>
-/// чекаем попадание сн€р€да, выкл, вкл анимацию
+/// чекает колайдер замка, выкл, отнимает жизни замка, вкл анимацию
 /// </summary>
-public class CheckBullet : MonoBehaviour
+public class CheckCastle : MonoBehaviour
 {
     [SerializeField]
     private Transform parentObject;    // ссылка на родител€ 
@@ -17,7 +17,7 @@ public class CheckBullet : MonoBehaviour
 
     [Header("¬рем€ анимации")]
     [SerializeField]
-    private float timeAnimDead;
+    private float timeAnimDead = 1;
 
     private void Start()
     {
@@ -26,7 +26,9 @@ public class CheckBullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<BulletGun>())
+        FloorTower floorTower = other.GetComponent<FloorTower>();
+
+        if (floorTower)
         {
             Dead();
         }
@@ -36,7 +38,7 @@ public class CheckBullet : MonoBehaviour
     {
         if (animator)
         {
-            animator.SetBool("Dead",true);
+            animator.SetBool("Dead", true);
         }
         StartCoroutine(DeActived());
 
@@ -45,7 +47,7 @@ public class CheckBullet : MonoBehaviour
     private IEnumerator DeActived()
     {
         yield return new WaitForSeconds(timeAnimDead);
-        Debug.Log("DeActived");
+        Debug.Log("Kamikaze");
         parentObject.gameObject.SetActive(false);
     }
 

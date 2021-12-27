@@ -54,13 +54,13 @@ public class BulletGun : MonoBehaviour
         Debug.Log(" Hit ");
     }
 
-    void DeActivatedBot(Collider other)
-    {
-        if (other.GetComponent<EnemyController>())
-        {
-            other.gameObject.SetActive(false);
+    //void DeActivatedBot(Collider other)
+    //{
+    //    if (other.GetComponent<EnemyController>())
+    //    {
+    //        other.gameObject.SetActive(false);
 
-        }
-    }
+    //    }
+    //}
 
 }
