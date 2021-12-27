@@ -30,11 +30,11 @@ public class GameController : MonoBehaviour
     //[SerializeField]
     //private List<GameObject> arrayEnemys;
 
-   // [Header("Массив воздуха")]
-   // public List<Transform> arrayAirs;
+    // [Header("Массив воздуха")]
+    // public List<Transform> arrayAirs;
 
-    //[Header("Ссыль на панель результата")]
-    //[SerializeField]
+    [Header("Ссыль на панель результата")]
+    [SerializeField]
     public GameObject refPanelResult;
 
     [Header("Ссыль на панель Победы игрока")]
@@ -45,28 +45,24 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private GameObject refPanelLoseGame;
 
-    //[Header("Ссылка на платформу игрока")]
-    //public PlatformForBallons platformForBallonsPlayer;
-
-    //[Header("Ссылка на платформу Бота")]
-    //public PlatformForBallons platformForBallonsBot;
 
     [Header("Задержка на появление панель Win/Lose")]
     [SerializeField]
     private float delayOnPanelWinLose = 1.0f;
 
-    //[Header("Таймер респавна шара после удаления")]
-    //public float timeActived = 2.0f;
+    
 
     //[HideInInspector]
     public bool isPlayGame;
 
-    [HideInInspector]
+    //[HideInInspector]
     public StateGame stateGame;
 
 
-    public int currentHealthCastle;
-  
+    public int currentHealthCastle; // текущее здоровье замка
+
+    public int currentCountBots;   //  текущее кол-во ботов
+
     void Awake()
     {
         if (Instance == null)
@@ -82,9 +78,9 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-       // checkerAirPlayer = player.GetComponent<CheckerItem>();
+        // checkerAirPlayer = player.GetComponent<CheckerItem>();
         // Time.timeScale = 0;
-        isPlayGame = false;
+        isPlayGame = true;
         stateGame = StateGame.Game;
     }
 
@@ -141,22 +137,44 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        UpdateGame();
+        if (isPlayGame)
+        {
+            UpdateGame();
+            UpdateStateGame();
+        }
     }
+
+
+    void UpdateGame()
+    {
+        if (currentHealthCastle == 0)
+        {
+            stateGame = StateGame.LoseGame;
+        }
+
+        if (currentCountBots == 0 && currentHealthCastle > 0)
+        {
+            stateGame = StateGame.WinGame;
+        }
+    }
+
 
 
     /// <summary>
     /// обновления игры
     /// </summary>
-    public void UpdateGame()
+    public void UpdateStateGame()
     {
+
         if (stateGame == StateGame.LoseGame)
         {
+            isPlayGame = false;
             Invoke("LoseGame", delayOnPanelWinLose);
         }
 
         if (stateGame == StateGame.WinGame)
         {
+            isPlayGame = false;
             Invoke("WinGame", delayOnPanelWinLose);
         }
 

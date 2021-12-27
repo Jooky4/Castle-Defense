@@ -34,7 +34,7 @@ public class EnemyController : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>() as NavMeshAgent;
         animator = GetComponentInChildren<Animator>();
-        RunEnemy();
+        //RunEnemy();
     }
 
 
@@ -44,7 +44,7 @@ public class EnemyController : MonoBehaviour
         // {
         //  ActiveHardRun(multiplySpeed);
         //ActiveEaseRun();
-        // UpdateMove();
+         UpdateMove();
         //UpdateInflating();
         //  }
 
@@ -52,7 +52,14 @@ public class EnemyController : MonoBehaviour
 
     void UpdateMove()
     {
-
+        if (GameController.Instance.stateGame != StateGame.Game)
+        {
+            IdleEnemy();
+        }
+        else
+        {
+            RunEnemy();
+        }
     }
 
     /// <summary>
