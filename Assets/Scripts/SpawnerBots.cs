@@ -20,18 +20,19 @@ public class SpawnerBots : MonoBehaviour
     public Transform[] poolBots;
 
     [SerializeField]
-    [Header("Длина области спавна бота")]
-    private int length;
+    [Header("Массив границ спавна")]
+    public Transform[] bordersSpawn;
 
     [SerializeField]
-    [Header("Ширина области спавна бота")]
-    private int width;
-
+    private int countBots;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+       countBots = (int)(countSpawnBots * (GameController.Instance.maxTimeGame / timerSpawnBots));
+        //countBots /= 2;
+
+
     }
 
     // Update is called once per frame

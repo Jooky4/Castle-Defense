@@ -17,8 +17,14 @@ public enum StateGame
 public class GameController : MonoBehaviour
 {
 
-
     public static GameController Instance;
+
+    //[SerializeField]
+    [Header("МАХ время игры")]
+    public int maxTimeGame = 10;
+
+    [HideInInspector]
+    public int currentTimerGame;
 
     //[Header("ссылка на игрока")]
     //public GameObject player;
@@ -50,7 +56,7 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private float delayOnPanelWinLose = 1.0f;
 
-    
+
 
     //[HideInInspector]
     public bool isPlayGame;
@@ -82,6 +88,9 @@ public class GameController : MonoBehaviour
         // Time.timeScale = 0;
         isPlayGame = true;
         stateGame = StateGame.Game;
+        currentTimerGame = maxTimeGame;
+        StartCoroutine(TimerGame());
+
     }
 
     /// <summary>
@@ -152,7 +161,7 @@ public class GameController : MonoBehaviour
             stateGame = StateGame.LoseGame;
         }
 
-        if (currentCountBots == 0 && currentHealthCastle > 0)
+        if (currentCountBots == 0 && currentTimerGame == 0)
         {
             stateGame = StateGame.WinGame;
         }
@@ -230,5 +239,14 @@ public class GameController : MonoBehaviour
         refPanelLoseGame.SetActive(true);
     }
 
+    private IEnumerator TimerGame()
+    {
+        while (currentTimerGame > 0)
+        {
+            yield return new WaitForSeconds(1.0f);
+            currentTimerGame--;
+
+        }
+    }
 
 }
