@@ -19,8 +19,8 @@ public class EnemyController : MonoBehaviour
     [HideInInspector]
     public NavMeshAgent navMeshAgent;
 
-    [SerializeField]
-    private Transform currentTarget;   // текущая цель
+    //[HideInInspector]
+    public Transform currentTarget;   // текущая цель
 
     [Header("Аниматор")]
     [SerializeField]
@@ -30,10 +30,18 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private float speedBegin = 3.0f;
 
-    void Start()
+    [HideInInspector]
+    public Vector3 lastPosition;
+
+    private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>() as NavMeshAgent;
         animator = GetComponentInChildren<Animator>();
+    }
+
+    void Start()
+    {
+        
         //RunEnemy();
     }
 
