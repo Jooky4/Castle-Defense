@@ -33,8 +33,6 @@ public class BulletGun : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         BulletHit();
-
-        //DeActivatedBot(other);
     }
 
 
@@ -53,14 +51,5 @@ public class BulletGun : MonoBehaviour
         }
         Debug.Log(" Hit ");
     }
-
-    //void DeActivatedBot(Collider other)
-    //{
-    //    if (other.GetComponent<EnemyController>())
-    //    {
-    //        other.gameObject.SetActive(false);
-
-    //    }
-    //}
 
 }

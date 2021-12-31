@@ -46,6 +46,7 @@ public class CheckBullet : MonoBehaviour
     {
         yield return new WaitForSeconds(timeAnimDead);
         Debug.Log("DeActived");
+        GameController.Instance.currentCountBots--;
         parentObject.gameObject.SetActive(false);
     }
 

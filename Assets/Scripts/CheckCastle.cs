@@ -48,6 +48,7 @@ public class CheckCastle : MonoBehaviour
     {
         yield return new WaitForSeconds(timeAnimDead);
         Debug.Log("Kamikaze");
+        GameController.Instance.currentCountBots--;
         parentObject.gameObject.SetActive(false);
     }
 

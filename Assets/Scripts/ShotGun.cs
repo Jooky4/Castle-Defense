@@ -29,7 +29,7 @@ public class ShotGun : MonoBehaviour
     /// <returns></returns>
     IEnumerator ShotingGun()
     {
-        while (true)
+        while (GameController.Instance.stateGame == StateGame.Game)
         {
             int countBulletgun = platformGun.countBulletGun;
 

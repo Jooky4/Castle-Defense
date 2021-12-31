@@ -29,8 +29,10 @@ public class MoveController : MonoBehaviour
 
     void FixedUpdate()
     {
-       //if (!GameController.Instance) return;
-        Move();
+        //if (!GameController.Instance) return;
+       
+
+            Move();
     }
 
     /// <summary>
@@ -41,7 +43,7 @@ public class MoveController : MonoBehaviour
         float horizMove = JoystickStick.Instance.VerticalAxis();
         float verticalMove = JoystickStick.Instance.HorizontalAxis(); 
 
-        if (horizMove == 0.0f && verticalMove == 0.0f)
+        if ((horizMove == 0.0f && verticalMove == 0.0f) || (GameController.Instance.stateGame != StateGame.Game))
         {
             if (animator)
             {
