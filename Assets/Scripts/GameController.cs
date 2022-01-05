@@ -56,6 +56,10 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private float delayOnPanelWinLose = 1.0f;
 
+    [SerializeField]
+    [Header("Мах кол-во ботов")]
+    private int maxCountBots = 10;
+
 
 
     //[HideInInspector]
@@ -71,6 +75,7 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
+        currentCountBots = maxCountBots;
         if (Instance == null)
         {
             DontDestroyOnLoad(gameObject);
@@ -156,12 +161,12 @@ public class GameController : MonoBehaviour
 
     void UpdateGame()
     {
-        if (currentHealthCastle == 0)
+        if (currentHealthCastle <= 0)
         {
             stateGame = StateGame.LoseGame;
         }
 
-        if (currentCountBots == 0 && currentTimerGame == 0)
+        if (currentCountBots <= 0 && currentTimerGame <= 0)
         {
             stateGame = StateGame.WinGame;
         }

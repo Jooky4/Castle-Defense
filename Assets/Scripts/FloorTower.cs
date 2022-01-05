@@ -1,7 +1,14 @@
+
+// скрипт висит на FloorTower\CheckWall
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// чекает противников и отнимает жизни замка
+/// </summary>
 public class FloorTower : MonoBehaviour
 {
     [SerializeField]

@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
+/// <summary>
+/// стрельба из пушки
+/// </summary>
 public class ShotGun : MonoBehaviour
 {
     [SerializeField]
