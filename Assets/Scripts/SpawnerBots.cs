@@ -1,9 +1,13 @@
+
+// Скрипт висит на SpawnerBots
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-
+/// <summary>
+/// создает ботов на поле и спавнит их 
+/// </summary>
 public class SpawnerBots : MonoBehaviour
 {
     [SerializeField]
@@ -27,7 +31,6 @@ public class SpawnerBots : MonoBehaviour
 
     [SerializeField]
     private Transform[] TargetsBots;
-
 
     private int lastIndex;   // последний элемент массива
 

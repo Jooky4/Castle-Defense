@@ -1,9 +1,13 @@
 //висит на игроке
-// движение персонажа
+// 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// движение персонажа и анимация
+/// </summary>
 [RequireComponent(typeof(Rigidbody))]
 public class MoveController : MonoBehaviour
 {

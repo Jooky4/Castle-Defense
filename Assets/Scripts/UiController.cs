@@ -1,9 +1,12 @@
+// висит на UiController
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+/// <summary>
+/// Обновление UI
+/// </summary>
 public class UiController : MonoBehaviour
 {
     [SerializeField]
