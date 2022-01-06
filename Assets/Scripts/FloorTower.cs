@@ -11,15 +11,13 @@ using UnityEngine;
 /// </summary>
 public class FloorTower : MonoBehaviour
 {
-    [SerializeField]
-    [Header("Мах число жизней")]
-    private int maxHealthCastle = 10;
+    
 
     public int currentHealthCastle;
 
     private void Start()
     {
-        currentHealthCastle = maxHealthCastle;
+        currentHealthCastle = GameController.Instance.maxHealthCastle;
         GameController.Instance.currentHealthCastle = currentHealthCastle;
     }
 
@@ -29,7 +27,7 @@ public class FloorTower : MonoBehaviour
         {
             currentHealthCastle--;
 
-            currentHealthCastle = Mathf.Clamp(currentHealthCastle, 0, maxHealthCastle);
+            currentHealthCastle = Mathf.Clamp(currentHealthCastle, 0, GameController.Instance.maxHealthCastle);
 
             GameController.Instance.currentHealthCastle = currentHealthCastle;
         }

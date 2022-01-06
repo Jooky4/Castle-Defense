@@ -1,0 +1,59 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+
+
+/// <summary>
+/// Скрипт весит на кнопке NEXT 
+/// </summary>
+public class NextLevel : MonoBehaviour
+{
+    public void LoadScene()
+    {
+        // Debug.Log(" SceneManager.GetActiveScene().buildIndex  = " + SceneManager.GetActiveScene().buildIndex);
+        //  Debug.Log(" sceneCountInBuildSettings  = " + SceneManager.sceneCountInBuildSettings);
+
+        int currentScene = SceneManager.GetActiveScene().buildIndex;   // текущая сцена
+
+        int countSceneInBuild = SceneManager.sceneCountInBuildSettings;   // количество сцен в BuildSettings
+
+        SaveLevelNumber("LevelNumber", GameController.Instance.currentLevel + 1);   // сохраняем номер level
+
+        if (countSceneInBuild - 1 > currentScene)          // если есь др сцены
+        {
+            SceneManager.LoadScene(currentScene + 1);         // то загружаем их
+        }
+        else
+        {
+            SceneManager.LoadScene(currentScene);            // иначе текущая
+        }
+    }
+
+    //private void SaveData()
+    //{
+    //    PlayerPrefs.SetInt("LevelNumber", PlayerPrefs.GetInt("LevelNumber") + 1);
+    //}
+
+    /// <summary>
+    /// Сохранение данных
+    /// </summary>
+    /// <param name="KeyName"></param>
+    /// <param name="Value"></param>
+    public void SaveLevelNumber(string KeyName, int Value)
+    {
+        PlayerPrefs.SetInt(KeyName, Value);
+    }
+
+
+    /// <summary>
+    /// Загрузка данных
+    /// </summary>
+    /// <param name="KeyName"></param>
+    /// <returns></returns>
+    public int LoadLevelNumber(string KeyName)
+    {
+        return PlayerPrefs.GetInt(KeyName);
+    }
+}
