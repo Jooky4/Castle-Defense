@@ -31,31 +31,34 @@ public class ShotGun : MonoBehaviour
     /// <returns></returns>
     IEnumerator ShotingGun()
     {
-        while (GameController.Instance.stateGame == StateGame.Game)
+        //while (GameController.Instance.stateGame == StateGame.Game)
+        while (true)
         {
-            int countBulletgun = platformGun.countBulletGun;
-
-            if (countBulletgun > 0)
+            if (GameController.Instance.stateGame == StateGame.Game)
             {
-                platformGun.poolBulletGun[indexPoolBulletGun].GetComponent<BulletGun>().isFire = true;   // берем снаряд из пула стреляем 
+                int countBulletgun = platformGun.countBulletGun;
 
-                indexPoolBulletGun++;      // увеличиваем индекс массива
-
-                if (indexPoolBulletGun < platformGun.poolBulletGun.Length)
+                if (countBulletgun > 0)
                 {
+                    platformGun.poolBulletGun[indexPoolBulletGun].GetComponent<BulletGun>().isFire = true;   // берем снаряд из пула стреляем 
 
+                    indexPoolBulletGun++;      // увеличиваем индекс массива
+
+                    if (indexPoolBulletGun < platformGun.poolBulletGun.Length)
+                    {
+
+                    }
+                    else
+                    {
+                        indexPoolBulletGun = 0;    // чтобы небыло переполнения
+                    }
+
+                    platformGun.countBulletGun--;
+
+                    Debug.Log(" SHOTGUN ");
                 }
-                else
-                {
-                    indexPoolBulletGun = 0;    // чтобы небыло переполнения
-                }
-
-                platformGun.countBulletGun--;  
-
-                Debug.Log(" SHOTGUN ");
             }
             yield return new WaitForSeconds(timeShoot);    // ждем 
-
         }
     }
 }

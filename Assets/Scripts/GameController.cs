@@ -4,53 +4,48 @@ using UnityEngine;
 
 public enum StateGame
 {
+    Start,
     Game,
     WinGame,
     LoseGame
 }
 
-
 /// <summary>
 /// Game Controller логика игры,содержит ссылки на игрока, шарики и противников
 /// </summary>
 
-public class GameController : MonoBehaviour
+public  class GameController : MonoBehaviour
 {
-
     public static GameController Instance;
 
-    //[SerializeField]
     [Header("МАХ время игры")]
     public int maxTimeGame = 10;
+
+    [Header("Мах число жизней замка")]
+    public int maxHealthCastle = 20;
 
     [HideInInspector]
     public int currentTimerGame;
 
-    //[Header("ссылка на игрока")]
-    //public GameObject player;
+    [Header("Ссыль SpawnerBots")]
+    [SerializeField]
+    public SpawnerBots spawnerBots;
 
-    //[HideInInspector]
-    //public CheckerItem checkerAirPlayer;
-
-    //[Header("Массив противников ")]
-    //[SerializeField]
-    //private List<GameObject> arrayEnemys;
-
-    // [Header("Массив воздуха")]
-    // public List<Transform> arrayAirs;
+    [Header("Ссыль SpawnerBullets")]
+    [SerializeField]
+    public SpawnerBullets spawnerBullets;
 
     [Header("Ссыль на панель результата")]
     [SerializeField]
-    public GameObject refPanelResult;
+    public GameObject PanelResult;
 
     [Header("Ссыль на панель Победы игрока")]
     [SerializeField]
-    private GameObject refPanelWinGame;
+    private GameObject PanelWinGame;
 
     [Header("Ссыль на панель Поражения игрока")]
     [SerializeField]
-    private GameObject refPanelLoseGame;
-
+    private GameObject PanelLoseGame;
 
     [Header("Задержка на появление панель Win/Lose")]
     [SerializeField]
@@ -60,94 +55,47 @@ public class GameController : MonoBehaviour
     [Header("Мах кол-во ботов")]
     private int maxCountBots = 10;
 
+    [HideInInspector]
+    public int currentLevel;   //   текущий уровень 
 
-
-    //[HideInInspector]
+    [HideInInspector]
     public bool isPlayGame;
 
     //[HideInInspector]
     public StateGame stateGame;
 
-
+   // [HideInInspector]
     public int currentHealthCastle; // текущее здоровье замка
 
+   // [HideInInspector]
     public int currentCountBots;   //  текущее кол-во ботов
 
     void Awake()
     {
-        currentCountBots = maxCountBots;
-        if (Instance == null)
-        {
-            DontDestroyOnLoad(gameObject);
+        //if (Instance == null)
+        //{
+        //    DontDestroyOnLoad(gameObject);
             Instance = this;
-        }
-        else if (Instance != this)
-        {
-            Destroy(gameObject);
-        }
+        //}
+        //else if (Instance != this)
+        //{
+        //    Destroy(gameObject);
+        //}
     }
+
 
     void Start()
     {
+        currentLevel = LoadLevelNumber("LevelNumber");
+
+        currentCountBots = maxCountBots;
         // checkerAirPlayer = player.GetComponent<CheckerItem>();
         // Time.timeScale = 0;
         isPlayGame = true;
-        stateGame = StateGame.Game;
+        stateGame = StateGame.Start;
         currentTimerGame = maxTimeGame;
         StartCoroutine(TimerGame());
-
     }
-
-    /// <summary>
-    /// поиск цели
-    /// </summary>
-    //public Transform GetNewTarget(Transform positionObject)
-    //{
-    //    Transform currentPosition = null;
-
-    //    if (arrayAirs.Count > 0)
-    //    {
-    //        float lastPosition = 100;
-
-    //        foreach (Transform currentBaloon in arrayAirs)
-    //        {
-    //            //Transform currentChildBaloon = currentBaloon.GetComponentInChildren<AirScript>().gameObject.transform;
-    //            float currentDistance = Vector3.Distance(currentChildBaloon.position, positionObject.position);
-
-    //            if (currentChildBaloon.gameObject.activeInHierarchy)
-    //            {
-    //                if (lastPosition > currentDistance)
-    //                {
-    //                    currentPosition = currentChildBaloon;
-    //                    lastPosition = currentDistance;
-    //                }
-    //            }
-    //        }
-
-    //    }
-    //    return currentPosition;
-    //}
-
-    //public Transform GetNewTargetRamdom(Transform positionObject)
-    //{
-    //    Transform currentPosition = null;
-    //    // if (arrayAirs.Count > 0)
-    //    foreach (Transform currentBaloon in arrayAirs)
-    //    {
-    //        Transform targetPosition = arrayAirs[Random.Range(0, arrayAirs.Count)];
-
-    //        if (targetPosition.GetComponentInChildren<AirScript>())
-    //        {
-    //            targetPosition = targetPosition.GetComponentInChildren<AirScript>().gameObject.transform;
-
-    //            if (targetPosition.gameObject.activeInHierarchy)
-    //            {
-    //                return targetPosition;
-    //            }
-    //        }
-    //    }
-    //    return currentPosition;
-    //}
 
     private void Update()
     {
@@ -158,7 +106,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-
     void UpdateGame()
     {
         if (currentHealthCastle <= 0)
@@ -166,13 +113,13 @@ public class GameController : MonoBehaviour
             stateGame = StateGame.LoseGame;
         }
 
-        if (currentCountBots <= 0 && currentTimerGame <= 0)
+        if (currentTimerGame <= 0)
+
+        //if (currentCountBots <= 0 && currentTimerGame <= 0)
         {
             stateGame = StateGame.WinGame;
         }
     }
-
-
 
     /// <summary>
     /// обновления игры
@@ -183,40 +130,27 @@ public class GameController : MonoBehaviour
         if (stateGame == StateGame.LoseGame)
         {
             isPlayGame = false;
+            EndGame();
             Invoke("LoseGame", delayOnPanelWinLose);
         }
 
         if (stateGame == StateGame.WinGame)
         {
             isPlayGame = false;
+            EndGame();
             Invoke("WinGame", delayOnPanelWinLose);
         }
-
     }
-
-    ///// <summary>
-    ///// Проверяем количество надутых шаров на платформе
-    ///// </summary>
-    ///// <param name="platformForBallons"></param>
-    ///// <returns></returns>
-    //private bool CheckCountBallonsPlayers(PlatformForBallons platformForBallons)
-    //{
-    //    bool result = false;
-    //    if (platformForBallons.currentCountBallonsPlanform == platformForBallons.maxCountBallons)
-    //    {
-    //        result = true;
-    //    }
-
-    //    return result;
-    //}
 
     /// <summary>
     /// старт игры
     /// </summary>
     public void StartGame()
     {
-        //Time.timeScale = 1;
-        isPlayGame = true;
+        stateGame = StateGame.Game;
+        spawnerBullets.gameObject.SetActive(true);
+        spawnerBots.gameObject.SetActive(true);
+        PanelResult.SetActive(true);
     }
 
     /// <summary>
@@ -224,24 +158,25 @@ public class GameController : MonoBehaviour
     /// </summary>
     public void EndGame()
     {
+        spawnerBullets.gameObject.SetActive(false);
+        spawnerBots.gameObject.SetActive(false);
+        PanelResult.SetActive(false);
+
         Debug.Log("End Game");
-        //Time.timeScale = 0;
-        //isPlayGame = false;
-        //refPanelResult.SetActive(false);
     }
 
     void WinGame()
     {
         EndGame();
         Debug.Log("Win Game");
-        refPanelWinGame.SetActive(true);
+        PanelWinGame.SetActive(true);
     }
 
     void LoseGame()
     {
         EndGame();
         Debug.Log("Lose Game");
-        refPanelLoseGame.SetActive(true);
+        PanelLoseGame.SetActive(true);
     }
 
     private IEnumerator TimerGame()
@@ -249,9 +184,21 @@ public class GameController : MonoBehaviour
         while (currentTimerGame > 0)
         {
             yield return new WaitForSeconds(1.0f);
-            currentTimerGame--;
 
+            if (stateGame == StateGame.Game)
+            {
+                currentTimerGame--;
+            }
         }
     }
 
+    /// <summary>
+    /// Загрузка данных
+    /// </summary>
+    /// <param name="KeyName"></param>
+    /// <returns></returns>
+    public int LoadLevelNumber(string KeyName)
+    {
+        return PlayerPrefs.GetInt(KeyName);
+    }
 }

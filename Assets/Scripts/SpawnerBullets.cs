@@ -68,6 +68,7 @@ public class SpawnerBullets : MonoBehaviour
                                      prefabBullet.position.y, Random.Range(bordersSpawn[0].position.z, bordersSpawn[1].position.z));
 
                 if (SetPositionBots(index))
+                //if (SetPositionBots(index, "test"))
                 {
                     break;
                 }
@@ -144,5 +145,33 @@ public class SpawnerBullets : MonoBehaviour
     //        //Draw a cube where the OverlapBox is (positioned where your GameObject is as well as a size)
     //        Gizmos.DrawWireCube(poolBullets[index].position, poolBullets[index].localScale);
     //}
+
+
+    private bool SetPositionBots(int index, string test)
+    {
+        bool result = false;
+
+        Collider[] hitColliders = Physics.OverlapBox(positionBullet, prefabBullet.localScale, Quaternion.identity);
+
+        int i = 0;
+
+        while (i < hitColliders.Length)
+        {
+            if (hitColliders[i].transform.GetComponent<Bullet>())
+            {
+                Debug.Log(hitColliders[i].transform.name);
+            }
+            else
+            {
+                poolBullets[index] = Instantiate(prefabBullet, positionBullet, Quaternion.identity);
+                result = true;
+                break;
+            }
+            //Debug.Log("Hit : " + hitColliders[i].name + i);
+            i++;
+        }
+
+        return result;
+    }
 }
 
