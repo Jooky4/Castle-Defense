@@ -12,11 +12,11 @@ public class UiController : MonoBehaviour
 {
     [Header("Cсылка UI здоровья замка")]
     [SerializeField]
-    private Text textCurrentHelth;
+    private TMP_Text textCurrentHelth;
 
     [Header("Cсылка UI таймер")]
     [SerializeField]
-    private Text textCurrentTimer;
+    private TMP_Text textCurrentTimer;
 
     [Header("Cсылка UI Level PanelLose")]
     [SerializeField]

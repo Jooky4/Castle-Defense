@@ -14,7 +14,7 @@ public enum StateGame
 /// Game Controller логика игры,содержит ссылки на игрока, шарики и противников
 /// </summary>
 
-public  class GameController : MonoBehaviour
+public class GameController : MonoBehaviour
 {
     public static GameController Instance;
 
@@ -34,6 +34,10 @@ public  class GameController : MonoBehaviour
     [Header("Ссыль SpawnerBullets")]
     [SerializeField]
     public SpawnerBullets spawnerBullets;
+
+    [Header("Ссыль на панель Старт Игра")]
+    [SerializeField]
+    public GameObject PanelStartGame;
 
     [Header("Ссыль на панель результата")]
     [SerializeField]
@@ -64,10 +68,10 @@ public  class GameController : MonoBehaviour
     //[HideInInspector]
     public StateGame stateGame;
 
-   // [HideInInspector]
+    // [HideInInspector]
     public int currentHealthCastle; // текущее здоровье замка
 
-   // [HideInInspector]
+    // [HideInInspector]
     public int currentCountBots;   //  текущее кол-во ботов
 
     void Awake()
@@ -75,7 +79,13 @@ public  class GameController : MonoBehaviour
         //if (Instance == null)
         //{
         //    DontDestroyOnLoad(gameObject);
-            Instance = this;
+        Instance = this;
+        PanelResult.SetActive(false);
+        PanelWinGame.SetActive(false);
+        PanelLoseGame.SetActive(false);
+        spawnerBullets.gameObject.SetActive(false);
+        spawnerBots.gameObject.SetActive(false);
+        PanelStartGame.gameObject.SetActive(true);
         //}
         //else if (Instance != this)
         //{
@@ -86,8 +96,11 @@ public  class GameController : MonoBehaviour
 
     void Start()
     {
-        currentLevel = LoadLevelNumber("LevelNumber");
 
+
+
+
+        currentLevel = LoadLevelNumber("LevelNumber");
         currentCountBots = maxCountBots;
         // checkerAirPlayer = player.GetComponent<CheckerItem>();
         // Time.timeScale = 0;

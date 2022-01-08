@@ -60,13 +60,13 @@ public class EnemyController : MonoBehaviour
 
     void UpdateMove()
     {
-        if (GameController.Instance.stateGame != StateGame.Game)
+        if (GameController.Instance.stateGame == StateGame.Game)
         {
-            IdleEnemy();
+            RunEnemy();
         }
         else
         {
-            RunEnemy();
+            IdleEnemy();
         }
     }
 
@@ -79,10 +79,10 @@ public class EnemyController : MonoBehaviour
 
         if (animator)
         {
-            if (navMeshAgent.speed == speedBegin)
-            {
+            //if (navMeshAgent.speed == speedBegin)
+            //{
                 animator.SetBool("Run", true);
-            }
+           // }
         }
     }
 
