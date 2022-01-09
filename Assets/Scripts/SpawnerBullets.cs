@@ -18,6 +18,10 @@ public class SpawnerBullets : MonoBehaviour
     [Header("Кол-во снарядов за спавн")]
     private int countSpawnBullets;
 
+    [Header("Позиция Y снаряда")]
+    [SerializeField]
+    private Transform PosYInstantiateBullet;
+
     [Header("Префаб снаряда")]
     [SerializeField]
     private Transform prefabBullet;
@@ -65,7 +69,7 @@ public class SpawnerBullets : MonoBehaviour
             for (int i = 0; i < 5; i++)
             {
                 positionBullet = new Vector3(Random.Range(bordersSpawn[0].position.x, bordersSpawn[1].position.x),
-                                     prefabBullet.position.y, Random.Range(bordersSpawn[0].position.z, bordersSpawn[1].position.z));
+                                     PosYInstantiateBullet.position.y, Random.Range(bordersSpawn[0].position.z, bordersSpawn[1].position.z));
 
                 if (SetPositionBots(index))
                 //if (SetPositionBots(index, "test"))

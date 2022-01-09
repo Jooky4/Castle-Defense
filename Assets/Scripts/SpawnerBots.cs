@@ -18,6 +18,10 @@ public class SpawnerBots : MonoBehaviour
     [Header("Кол-во ботов за спавн")]
     private int countSpawnBots;
 
+    [Header("Позиция Y Бота")]
+    [SerializeField]
+    private Transform PosYInstantiateBot;
+
     [Header("Префаб бота")]
     [SerializeField]
     private Transform prefabBot;
@@ -59,7 +63,7 @@ public class SpawnerBots : MonoBehaviour
         poolBots = new Transform[countBots];
         for (int index = 0; index < poolBots.Length; index++)
         {
-            Vector3 positionBot = new Vector3(Random.Range(bordersSpawn[0].position.x, bordersSpawn[1].position.x), prefabBot.position.y, Random.Range(bordersSpawn[0].position.z, bordersSpawn[1].position.z));
+            Vector3 positionBot = new Vector3(Random.Range(bordersSpawn[0].position.x, bordersSpawn[1].position.x), PosYInstantiateBot.position.y, Random.Range(bordersSpawn[0].position.z, bordersSpawn[1].position.z));
             poolBots[index] = Instantiate(prefabBot, positionBot, Quaternion.identity);
             //EnemyController enemyController = poolBots[index].gameObject.GetComponent<EnemyController>();
             // enemyController.currentTarget = SetTarget(poolBots[index]);
