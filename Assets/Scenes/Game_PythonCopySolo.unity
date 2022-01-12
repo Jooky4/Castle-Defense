@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.64369506, g: 0.7959403, b: 0.9662277, a: 1}
+  m_IndirectSpecularColor: {r: 0.6436894, g: 0.79593897, b: 0.96622676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -18671,10 +18671,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxTimeGame: 60
-  maxHealthCastle: 20
+  maxHealthCastle: 60
   currentTimerGame: 0
   spawnerBots: {fileID: 1224611185}
   spawnerBullets: {fileID: 1875992689}
+  countBulletsStartGame: 5
   PanelStartGame: {fileID: 292441279}
   PanelResult: {fileID: 1314429589}
   PanelWinGame: {fileID: 685800368}

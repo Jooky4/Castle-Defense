@@ -35,6 +35,10 @@ public class GameController : MonoBehaviour
     [SerializeField]
     public SpawnerBullets spawnerBullets;
 
+    [Header("Кол-во Spawn снарядов в начале игры")]
+    [SerializeField]
+    public int countBulletsStartGame;
+
     [Header("Ссыль на панель Старт Игра")]
     [SerializeField]
     public GameObject PanelStartGame;
