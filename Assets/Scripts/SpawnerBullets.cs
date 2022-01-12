@@ -1,4 +1,4 @@
-// Скрипт висит на SpawnerBullets
+// ГАВНА Скрипт висит на SpawnerBullets
 
 using System.Collections;
 using UnityEngine;

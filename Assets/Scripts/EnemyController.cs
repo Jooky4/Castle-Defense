@@ -1,5 +1,5 @@
 
-// скрипт весит на противнике
+// ГАВНА скрипт весит на противнике
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,13 +9,6 @@ using UnityEngine.AI;
 /// </summary>
 public class EnemyController : MonoBehaviour
 {
-    //enum ModeBot
-    //{
-    //    MinDist,
-    //    Random,
-    //    FollowPlayer
-    //}
-
     [HideInInspector]
     public NavMeshAgent navMeshAgent;
 
@@ -42,20 +35,12 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         
-        //RunEnemy();
     }
 
 
     void Update()
     {
-        // if (GameController.Instance.isPlayGame)
-        // {
-        //  ActiveHardRun(multiplySpeed);
-        //ActiveEaseRun();
          UpdateMove();
-        //UpdateInflating();
-        //  }
-
     }
 
     void UpdateMove()
