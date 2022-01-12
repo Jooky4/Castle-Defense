@@ -8258,8 +8258,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83afde4c0ba097147a169d4239b16e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textCurrentHelth: {fileID: 0}
-  textCurrentTimer: {fileID: 0}
+  textCurrentHelth: {fileID: 340765864}
+  textCurrentTimer: {fileID: 2033793531}
   textCurrentLevelPanelLose: {fileID: 1292572948}
   textCurrentLevelPanelWin: {fileID: 152971106}
 --- !u!4 &764190086
@@ -13480,6 +13480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerSpawnBots: 1
   countSpawnBots: 1
+  PosYInstantiateBot: {fileID: 0}
   prefabBot: {fileID: 4561855482993794564, guid: cc5ca23193ced8745b69fc2ed5184292, type: 3}
   poolBots: []
   bordersSpawn:
@@ -18552,6 +18553,7 @@ MonoBehaviour:
   currentTimerGame: 0
   spawnerBots: {fileID: 1224611185}
   spawnerBullets: {fileID: 1875992689}
+  PanelStartGame: {fileID: 0}
   PanelResult: {fileID: 1314429589}
   PanelWinGame: {fileID: 685800368}
   PanelLoseGame: {fileID: 182209827}
