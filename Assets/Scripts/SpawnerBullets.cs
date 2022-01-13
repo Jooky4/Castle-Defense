@@ -93,9 +93,9 @@ public class SpawnerBullets : MonoBehaviour
        
         while (GameController.Instance.stateGame == StateGame.Game)
         {
-            SpawnBullets();
-
             yield return new WaitForSeconds(timerSpawnBullets);
+
+            SpawnBullets(countSpawnBullets);
         }
     }
 
@@ -122,7 +122,7 @@ public class SpawnerBullets : MonoBehaviour
         return result;
     }
 
-    void SpawnBullets()
+    void SpawnBullets(int countSpawnBullets)
     {
         int index;
 
@@ -146,7 +146,7 @@ public class SpawnerBullets : MonoBehaviour
     {
         for (int i = 0; i < countBulletsStartGame; i++)
         {
-            SpawnBullets();
+            SpawnBullets(1);
         }
     }
 

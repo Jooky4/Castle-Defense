@@ -34,13 +34,13 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        
+        navMeshAgent.speed = speedBegin;
     }
 
 
     void Update()
     {
-         UpdateMove();
+        UpdateMove();
     }
 
     void UpdateMove()
@@ -66,8 +66,8 @@ public class EnemyController : MonoBehaviour
         {
             //if (navMeshAgent.speed == speedBegin)
             //{
-                animator.SetBool("Run", true);
-           // }
+            animator.SetBool("Run", true);
+            // }
         }
     }
 
