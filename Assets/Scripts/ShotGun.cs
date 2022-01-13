@@ -13,6 +13,10 @@ public class ShotGun : MonoBehaviour
     [Header("¬рем€ между выстрелами")]
     private float timeShoot = 1.0f;
 
+    [SerializeField]
+    [Header("—истема частиц")]
+    private ParticleSystem particleSys;
+
     private PlatformGun platformGun;
 
     public bool isFire = false;
@@ -41,6 +45,11 @@ public class ShotGun : MonoBehaviour
                 if (countBulletgun > 0)
                 {
                     platformGun.poolBulletGun[indexPoolBulletGun].GetComponent<BulletGun>().isFire = true;   // берем снар€д из пула стрел€ем 
+
+                    if (particleSys)
+                    {
+                        particleSys.Play();
+                    }
 
                     indexPoolBulletGun++;      // увеличиваем индекс массива
 

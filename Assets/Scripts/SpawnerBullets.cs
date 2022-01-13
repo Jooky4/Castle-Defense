@@ -48,6 +48,10 @@ public class SpawnerBullets : MonoBehaviour
         StartSpawn(GameController.Instance.countBulletsStartGame);
         StartCoroutine(CoroutineSpawnBullets());
     }
+
+    /// <summary>
+    /// создаем снаряды на поле
+    /// </summary>
     private void InstantiateBullets()
     {
         int countBullets = (int)(countSpawnBullets * (GameController.Instance.maxTimeGame / timerSpawnBullets));
@@ -77,6 +81,9 @@ public class SpawnerBullets : MonoBehaviour
         // Debug.Log("InstantiateBullets");
     }
 
+    /// <summary>
+    /// выкл снаряды на поле
+    /// </summary>
     private void SetActiveBots()
     {
         for (int index = 0; index < poolBullets.Length; index++)
@@ -88,6 +95,10 @@ public class SpawnerBullets : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// таймер спавна снарядов
+    /// </summary>
+    /// <returns></returns>
     IEnumerator CoroutineSpawnBullets()
     {
        
@@ -99,6 +110,11 @@ public class SpawnerBullets : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// находим позицию для снаряда на поле
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns></returns>
     private bool SetPositionBots(int index)
     {
         bool result = false;
@@ -122,6 +138,10 @@ public class SpawnerBullets : MonoBehaviour
         return result;
     }
 
+    /// <summary>
+    /// спавн снарядов с задержкой
+    /// </summary>
+    /// <param name="countSpawnBullets"></param>
     void SpawnBullets(int countSpawnBullets)
     {
         int index;
@@ -142,6 +162,11 @@ public class SpawnerBullets : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// спавн снарядов при старте
+    /// </summary>
+    /// <param name="countBulletsStartGame"></param>
     void StartSpawn(int countBulletsStartGame)
     {
         for (int i = 0; i < countBulletsStartGame; i++)
