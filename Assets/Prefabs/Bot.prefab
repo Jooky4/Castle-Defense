@@ -90,7 +90,7 @@ MonoBehaviour:
   navMeshAgent: {fileID: 0}
   currentTarget: {fileID: 0}
   animator: {fileID: 1061016581587068245}
-  speedBegin: 0.6
+  speedBegin: 3
   lastPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &4561855483470257834
 GameObject:
