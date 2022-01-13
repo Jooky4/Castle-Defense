@@ -1,5 +1,5 @@
 
-// скрипт висит на платформе с пушкой
+//ГАВНА скрипт висит на платформе с пушкой
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

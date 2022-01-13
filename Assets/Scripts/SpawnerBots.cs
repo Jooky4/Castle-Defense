@@ -1,5 +1,5 @@
 
-// Скрипт висит на SpawnerBots
+// ГАВНА Скрипт висит на SpawnerBots
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,8 +40,7 @@ public class SpawnerBots : MonoBehaviour
 
     void Start()
     {
-        // thisObjectTransform = transform;
-        foreach (Transform border in bordersSpawn)
+        foreach (Transform border in bordersSpawn) // выкл границы спавна
         {
             border.gameObject.SetActive(false);
         }
@@ -57,6 +56,10 @@ public class SpawnerBots : MonoBehaviour
 
     }
 
+
+    /// <summary>
+    /// создаем бота
+    /// </summary>
     private void InstantiateBots()
     {
         int countBots = (int)(countSpawnBots * (GameController.Instance.maxTimeGame / timerSpawnBots));
@@ -65,12 +68,12 @@ public class SpawnerBots : MonoBehaviour
         {
             Vector3 positionBot = new Vector3(Random.Range(bordersSpawn[0].position.x, bordersSpawn[1].position.x), PosYInstantiateBot.position.y, Random.Range(bordersSpawn[0].position.z, bordersSpawn[1].position.z));
             poolBots[index] = Instantiate(prefabBot, positionBot, Quaternion.identity);
-            //EnemyController enemyController = poolBots[index].gameObject.GetComponent<EnemyController>();
-            // enemyController.currentTarget = SetTarget(poolBots[index]);
-            // poolBots[index].gameObject.SetActive(false);
         }
     }
 
+    /// <summary>
+    /// положение бота
+    /// </summary>
     private void SetPositionBots()
     {
         for (int index = 0; index < poolBots.Length; index++)
@@ -82,6 +85,11 @@ public class SpawnerBots : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// спавн (вкл) с задержкой
+    /// </summary>
+    /// <returns></returns>
     IEnumerator SpawnBots()
     {
         int index;
@@ -103,6 +111,11 @@ public class SpawnerBots : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Сетит цель
+    /// </summary>
+    /// <param name="currentObject"></param>
+    /// <returns></returns>
     Transform SetTarget(Transform currentObject)
     {
         Transform currentTarget = TargetsBots[0];

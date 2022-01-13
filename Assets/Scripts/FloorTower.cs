@@ -1,5 +1,5 @@
 
-// скрипт висит на FloorTower\CheckWall
+// ГАВНА скрипт висит на FloorTower\CheckWall
 
 using System.Collections;
 using System.Collections.Generic;

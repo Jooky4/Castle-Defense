@@ -1,5 +1,5 @@
 
-// скрипт висит на снаряде пушки
+//ГАВНА скрипт висит на снаряде пушки
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
