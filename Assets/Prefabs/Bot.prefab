@@ -316,6 +316,14 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2407040422186281054, guid: e2527e7aa2e794345983a39d81e4302c, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407040422186281054, guid: e2527e7aa2e794345983a39d81e4302c, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2407040422186319810, guid: e2527e7aa2e794345983a39d81e4302c, type: 3}
       propertyPath: playOnAwake
       value: 0
