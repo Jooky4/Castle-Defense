@@ -216,7 +216,7 @@ MonoBehaviour:
   parentObject: {fileID: 4561855482993794564}
   visualEnemy: {fileID: 4090480232836924883}
   particleSys: {fileID: 5336834301316982564}
-  timeAnimDead: 1
+  timeAnimDead: 0
   timeParticleSystem: 1
 --- !u!1001 &4561855481605120568
 PrefabInstance:
