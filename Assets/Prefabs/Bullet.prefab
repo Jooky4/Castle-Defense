@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualBullet: {fileID: 3676524079710254582}
-  particleSys: {fileID: 7306501620510794397}
+  particleSys: {fileID: 0}
   isActive: 1
 --- !u!1 &3676524079710254583
 GameObject:
@@ -189,7 +189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2838673545984672798
 Transform:
   m_ObjectHideFlags: 0
@@ -281,10 +281,5 @@ PrefabInstance:
 --- !u!4 &7306501620495588687 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7791701226410169894, guid: ee53f4092306a1e489b32b326dc1be0d, type: 3}
-  m_PrefabInstance: {fileID: 667736128590433129}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &7306501620510794397 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7791701226425379316, guid: ee53f4092306a1e489b32b326dc1be0d, type: 3}
   m_PrefabInstance: {fileID: 667736128590433129}
   m_PrefabAsset: {fileID: 0}
