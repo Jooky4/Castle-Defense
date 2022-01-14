@@ -45,7 +45,7 @@ public class EnemyController : MonoBehaviour
 
     void UpdateMove()
     {
-        if (GameController.Instance.stateGame == StateGame.Game)
+        if (GameController.Instance.stateGame == StateGame.Game && navMeshAgent.speed > 0)
         {
             RunEnemy();
         }
@@ -74,7 +74,7 @@ public class EnemyController : MonoBehaviour
     /// <summary>
     /// стоп бот
     /// </summary>
-    void IdleEnemy()
+   public void IdleEnemy()
     {
         navMeshAgent.speed = 0;
         if (animator) animator.SetBool("Run", false);

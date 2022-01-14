@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.64369506, g: 0.7959403, b: 0.9662277, a: 1}
+  m_IndirectSpecularColor: {r: 0.6436894, g: 0.79593897, b: 0.96622676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2471,6 +2471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeShoot: 0.5
+  particleSys: {fileID: 0}
   isFire: 0
 --- !u!114 &211211939
 MonoBehaviour:
@@ -3580,6 +3581,71 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261439353}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &263592422
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1917903859}
+    m_Modifications:
+    - target: {fileID: 7415319539617512709, guid: 714526c55ee894b4688589c0dc5ace19, type: 3}
+      propertyPath: m_Name
+      value: Fallen smoke
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415319539617803933, guid: 714526c55ee894b4688589c0dc5ace19, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415319539617803933, guid: 714526c55ee894b4688589c0dc5ace19, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415319539617803933, guid: 714526c55ee894b4688589c0dc5ace19, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415319539617803933, guid: 714526c55ee894b4688589c0dc5ace19, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415319539617803933, guid: 714526c55ee894b4688589c0dc5ace19, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415319539617803933, guid: 714526c55ee894b4688589c0dc5ace19, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415319539617803933, guid: 714526c55ee894b4688589c0dc5ace19, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415319539617803933, guid: 714526c55ee894b4688589c0dc5ace19, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415319539617803933, guid: 714526c55ee894b4688589c0dc5ace19, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415319539617803933, guid: 714526c55ee894b4688589c0dc5ace19, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415319539617803933, guid: 714526c55ee894b4688589c0dc5ace19, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415319539631952527, guid: 714526c55ee894b4688589c0dc5ace19, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415319539631952527, guid: 714526c55ee894b4688589c0dc5ace19, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 714526c55ee894b4688589c0dc5ace19, type: 3}
 --- !u!1 &263649008
 GameObject:
   m_ObjectHideFlags: 0
@@ -4757,6 +4823,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 54a76ca8ecf5340dc890409523eba101, type: 3}
       propertyPath: m_Name
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 54a76ca8ecf5340dc890409523eba101, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 54a76ca8ecf5340dc890409523eba101, type: 3}
       propertyPath: m_RootOrder
@@ -7600,6 +7670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeShoot: 0.5
+  particleSys: {fileID: 0}
   isFire: 0
 --- !u!114 &656019264
 MonoBehaviour:
@@ -10063,6 +10134,7 @@ Transform:
   - {fileID: 1229871608}
   - {fileID: 1756127411}
   - {fileID: 1402839562}
+  - {fileID: 1917903859}
   m_Father: {fileID: 2071391463}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11137,6 +11209,16 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 965952874}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &966005447 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7415319539617803933, guid: 714526c55ee894b4688589c0dc5ace19, type: 3}
+  m_PrefabInstance: {fileID: 263592422}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &966005449 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7415319539631952527, guid: 714526c55ee894b4688589c0dc5ace19, type: 3}
+  m_PrefabInstance: {fileID: 263592422}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &976855076
 GameObject:
   m_ObjectHideFlags: 0
@@ -20338,6 +20420,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1911302432}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1917903858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1917903859}
+  m_Layer: 0
+  m_Name: ParticleSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1917903859
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917903858}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.51, y: 1.03, z: -2.73}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 966005447}
+  m_Father: {fileID: 920060637}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1918771142
 GameObject:
   m_ObjectHideFlags: 0
@@ -21649,6 +21762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeShoot: 1
+  particleSys: {fileID: 0}
   isFire: 0
 --- !u!114 &2059542903
 MonoBehaviour:
@@ -27454,6 +27568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeShoot: 0.5
+  particleSys: {fileID: 966005449}
   isFire: 0
 --- !u!114 &8284953507997165115
 MonoBehaviour:
