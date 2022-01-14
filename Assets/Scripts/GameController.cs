@@ -80,9 +80,7 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        //if (Instance == null)
-        //{
-        //    DontDestroyOnLoad(gameObject);
+        currentLevel = 1;
         Instance = this;
         PanelResult.SetActive(false);
         PanelWinGame.SetActive(false);
@@ -90,24 +88,17 @@ public class GameController : MonoBehaviour
         spawnerBullets.gameObject.SetActive(false);
         spawnerBots.gameObject.SetActive(false);
         PanelStartGame.gameObject.SetActive(true);
-        //}
-        //else if (Instance != this)
-        //{
-        //    Destroy(gameObject);
-        //}
     }
 
 
     void Start()
     {
-
-
-
-
         currentLevel = LoadLevelNumber("LevelNumber");
+        if (currentLevel == 0)
+        {
+            currentLevel = 1;
+        }
         currentCountBots = maxCountBots;
-        // checkerAirPlayer = player.GetComponent<CheckerItem>();
-        // Time.timeScale = 0;
         isPlayGame = true;
         stateGame = StateGame.Start;
         currentTimerGame = maxTimeGame;
@@ -185,6 +176,7 @@ public class GameController : MonoBehaviour
     void WinGame()
     {
         EndGame();
+        currentLevel++;
         Debug.Log("Win Game");
         PanelWinGame.SetActive(true);
     }

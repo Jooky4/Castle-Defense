@@ -19,7 +19,7 @@ public class NextLevel : MonoBehaviour
 
         int countSceneInBuild = SceneManager.sceneCountInBuildSettings;   // количество сцен в BuildSettings
 
-        SaveLevelNumber("LevelNumber", GameController.Instance.currentLevel + 1);   // сохраняем номер level
+        SaveLevelNumber("LevelNumber", GameController.Instance.currentLevel);   // сохраняем номер level
 
         if (countSceneInBuild - 1 > currentScene)          // если есь др сцены
         {
@@ -30,11 +30,6 @@ public class NextLevel : MonoBehaviour
             SceneManager.LoadScene(currentScene);            // иначе текущая
         }
     }
-
-    //private void SaveData()
-    //{
-    //    PlayerPrefs.SetInt("LevelNumber", PlayerPrefs.GetInt("LevelNumber") + 1);
-    //}
 
     /// <summary>
     /// Сохранение данных
