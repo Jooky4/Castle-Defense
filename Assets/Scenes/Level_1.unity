@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.6436894, g: 0.79593897, b: 0.96622676, a: 1}
+  m_IndirectSpecularColor: {r: 0.64369506, g: 0.7959403, b: 0.9662277, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13996,7 +13996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7020dec3ec9d7a94cbf845c7bd35f083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerSpawnBots: 1
+  timerSpawnBots: 2.5
   countSpawnBots: 2
   PosYInstantiateBot: {fileID: 1347438574}
   prefabBot: {fileID: 4561855482993794564, guid: cc5ca23193ced8745b69fc2ed5184292, type: 3}
@@ -19797,7 +19797,7 @@ MonoBehaviour:
   currentTimerGame: 0
   spawnerBots: {fileID: 1224611185}
   spawnerBullets: {fileID: 1875992689}
-  countBulletsStartGame: 0
+  countBulletsStartGame: 10
   PanelStartGame: {fileID: 292441279}
   PanelResult: {fileID: 1314429589}
   PanelWinGame: {fileID: 685800368}

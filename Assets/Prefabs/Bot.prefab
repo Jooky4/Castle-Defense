@@ -41,7 +41,7 @@ Animator:
   m_GameObject: {fileID: 3715362721818009449}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bc0fc28fc85ea514590f48bf700cb471, type: 2}
+  m_Controller: {fileID: 9100000, guid: 99fea88d02353c8439f386849db76a75, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
   navMeshAgent: {fileID: 0}
   currentTarget: {fileID: 0}
   animator: {fileID: 1061016581587068245}
-  speedBegin: 1.5
+  speedBegin: 2
   lastPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &4561855483470257834
 GameObject:
