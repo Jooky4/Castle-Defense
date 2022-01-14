@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentObject: {fileID: 4561855482993794564}
-  timeAnimDead: 1
+  timeAnimDead: 0
 --- !u!54 &6987970936823642231
 Rigidbody:
   m_ObjectHideFlags: 0
