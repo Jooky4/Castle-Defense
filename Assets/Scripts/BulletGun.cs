@@ -6,12 +6,15 @@ using UnityEngine;
 
 public class BulletGun : MonoBehaviour
 {
-    // [HideInInspector]
+    [HideInInspector]
     public bool isFire = false;
 
     public float speed = 1.0f;
 
     private Vector3 beginPositionBulletGun;
+
+    [Header("Наносимый урон")]
+    public int damage = 1;
 
     [SerializeField]
     [Header("Система частиц")]

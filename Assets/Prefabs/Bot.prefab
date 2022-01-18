@@ -186,6 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentObject: {fileID: 4561855482993794564}
   timeAnimDead: 0
+  maxHealthBot: 1
 --- !u!54 &6987970936823642231
 Rigidbody:
   m_ObjectHideFlags: 0

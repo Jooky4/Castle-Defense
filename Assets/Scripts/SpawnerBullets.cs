@@ -144,21 +144,42 @@ public class SpawnerBullets : MonoBehaviour
     /// <param name="countSpawnBullets"></param>
     void SpawnBullets(int countSpawnBullets)
     {
-        int index;
+        //int index = lastIndex;
 
-        for (index = lastIndex; index < lastIndex + countSpawnBullets; index++)
+        // for(int i = 0; i < countSpawnBullets; i++)
+        // //for (index = lastIndex; index < lastIndex + countSpawnBullets; index++)
+        // {
+
+        //     if (poolBullets[index] != null)
+        //     {
+        //         Debug.Log(index);
+        //         poolBullets[index].gameObject.SetActive(true);
+        //     }
+        //     index++;
+        // }
+
+        // lastIndex = index;
+
+        // if (lastIndex >= poolBullets.Length)
+        // {
+        //     lastIndex = 0;
+        // }
+
+
+        for (int i = 0; i < countSpawnBullets; i++)
         {
-            if (poolBullets[index] != null)
+
+            if (poolBullets[lastIndex] != null)
             {
-                poolBullets[index].gameObject.SetActive(true);
+               // Debug.Log(lastIndex);
+                poolBullets[lastIndex].gameObject.SetActive(true);
             }
-        }
+            lastIndex++;
 
-        lastIndex = index;
-
-        if (lastIndex >= poolBullets.Length)
-        {
-            lastIndex = 0;
+            if (lastIndex >= poolBullets.Length)
+            {
+                lastIndex = 0;
+            }
         }
     }
 

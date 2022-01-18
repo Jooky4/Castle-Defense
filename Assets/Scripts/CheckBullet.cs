@@ -21,8 +21,15 @@ public class CheckBullet : MonoBehaviour
     [SerializeField]
     private float timeAnimDead;
 
+    [Header("Мах колво жизней бота")]
+    [SerializeField]
+    private int maxHealthBot = 1;
+
+    private int currentHealthBot;
+
     private void Start()
     {
+        currentHealthBot = maxHealthBot;
         animator = parentObject.GetComponent<Animator>();
         enemyController = parentObject.GetComponent<EnemyController>();
     }
@@ -33,12 +40,23 @@ public class CheckBullet : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<BulletGun>())
+        BulletGun bulletGun;
+        bulletGun = other.GetComponent<BulletGun>();
+
+        if (bulletGun)
+        {
+            TakeDamage(bulletGun.damage);
+        }
+    }
+
+    void TakeDamage(int damage)
+    {
+        currentHealthBot -= damage;
+        if (currentHealthBot < 1)
         {
             Dead();
         }
     }
-
 
     /// <summary>
     /// анимация смерти
@@ -50,7 +68,7 @@ public class CheckBullet : MonoBehaviour
         {
             animator.SetTrigger("Dead");
         }
-        
+
         StartCoroutine(DeActived());
 
     }
