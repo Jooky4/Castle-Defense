@@ -11,7 +11,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class MoveController : MonoBehaviour
 {
-    
+    private Rigidbody rigidBody;
+
     [Header("Rotate")]
     [SerializeField]
     private GameObject visualPlayer;
@@ -29,14 +30,13 @@ public class MoveController : MonoBehaviour
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
+        rigidBody = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
     {
         //if (!GameController.Instance) return;
-       
-
-            Move();
+        Move();
     }
 
     /// <summary>
@@ -45,7 +45,7 @@ public class MoveController : MonoBehaviour
     private void Move()
     {
         float horizMove = JoystickStick.Instance.VerticalAxis();
-        float verticalMove = JoystickStick.Instance.HorizontalAxis(); 
+        float verticalMove = JoystickStick.Instance.HorizontalAxis();
 
         if ((horizMove == 0.0f && verticalMove == 0.0f) || (GameController.Instance.stateGame != StateGame.Game))
         {
@@ -70,12 +70,14 @@ public class MoveController : MonoBehaviour
             {
                 animator.SetBool("Run", true);
             }
-          
+
         }
 
         Vector3 movement = new Vector3(verticalMove, 0, horizMove) * speed;
 
         transform.Translate(movement * Time.fixedDeltaTime);
+        // rigidBody.AddForce(movement);
+        //rigidBody.AddForce(movement, ForceMode.Impulse);
     }
 
 }

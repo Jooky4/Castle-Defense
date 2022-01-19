@@ -219,6 +219,7 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   animator: {fileID: 1881996252943654096}
   speedBegin: 2
+  percentChoiceBot: 20
   lastPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &2582066600507856984
 PrefabInstance:

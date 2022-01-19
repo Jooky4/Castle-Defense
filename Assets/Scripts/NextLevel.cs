@@ -19,7 +19,10 @@ public class NextLevel : MonoBehaviour
 
         int countSceneInBuild = SceneManager.sceneCountInBuildSettings;   // количество сцен в BuildSettings
 
-        SaveLevelNumber("LevelNumber", GameController.Instance.currentLevel);   // сохраняем номер level
+        SaveData("LevelNumber", GameController.Instance.currentLevel);   // сохраняем номер level
+
+        SaveData("Money", GameController.Instance.currentMoney); // сохраняем колво денег
+        
 
         if (countSceneInBuild - 1 > currentScene)          // если есь др сцены
         {
@@ -36,7 +39,7 @@ public class NextLevel : MonoBehaviour
     /// </summary>
     /// <param name="KeyName"></param>
     /// <param name="Value"></param>
-    public void SaveLevelNumber(string KeyName, int Value)
+    public void SaveData(string KeyName, int Value)
     {
         PlayerPrefs.SetInt(KeyName, Value);
     }

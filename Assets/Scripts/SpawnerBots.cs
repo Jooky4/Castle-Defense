@@ -24,7 +24,10 @@ public class SpawnerBots : MonoBehaviour
 
     [Header("Префаб бота")]
     [SerializeField]
-    private Transform prefabBot;
+    private Transform[] prefabBot;
+
+    //[SerializeField]
+    private int[] arrayPercentChoice;    // массив выбора бота в процентах
 
     [HideInInspector]
     public Transform[] poolBots;
@@ -40,6 +43,8 @@ public class SpawnerBots : MonoBehaviour
 
     void Start()
     {
+        ConvertPercentChoiceBots();
+
         foreach (Transform border in bordersSpawn) // выкл границы спавна
         {
             border.gameObject.SetActive(false);
@@ -48,14 +53,23 @@ public class SpawnerBots : MonoBehaviour
         InstantiateBots();
         SetPositionBots();
         StartCoroutine(SpawnBots());
-
     }
 
-    void Update()
+    /// <summary>
+    /// Преобразуем для расчета
+    /// </summary>
+   void ConvertPercentChoiceBots()
     {
+        arrayPercentChoice = new int[prefabBot.Length];
+        int lastArrayPercentChoice = 0;
+        for (int i = 0; i < prefabBot.Length; i++)
+        {
+            arrayPercentChoice[i] = lastArrayPercentChoice + prefabBot[i].GetComponent<EnemyController>().percentChoiceBot;
 
+            lastArrayPercentChoice = arrayPercentChoice[i];
+
+        }
     }
-
 
     /// <summary>
     /// создаем бота
@@ -64,12 +78,39 @@ public class SpawnerBots : MonoBehaviour
     {
         int countBots = (int)(countSpawnBots * (GameController.Instance.maxTimeGame / timerSpawnBots));
         poolBots = new Transform[countBots];
+
         for (int index = 0; index < poolBots.Length; index++)
         {
+            int indexPrefabBot = RandomChoicePrefabBot();
             Vector3 positionBot = new Vector3(Random.Range(bordersSpawn[0].position.x, bordersSpawn[1].position.x), PosYInstantiateBot.position.y, Random.Range(bordersSpawn[0].position.z, bordersSpawn[1].position.z));
-            poolBots[index] = Instantiate(prefabBot, positionBot, Quaternion.identity);
+            poolBots[index] = Instantiate(prefabBot[indexPrefabBot], positionBot, Quaternion.identity);
         }
     }
+
+    /// <summary>
+    /// Выбор рамдомного бота
+    /// </summary>
+    /// <returns></returns>
+    int RandomChoicePrefabBot()
+    {
+        int result = 0;
+
+        int randomPercent = Random.Range(0, 101);
+
+        for (int i = 0; i < arrayPercentChoice.Length; i++)
+        {
+            int percentChoiceBot = arrayPercentChoice[i];
+
+            if (randomPercent < percentChoiceBot)
+            {
+                result = i;
+                break;
+            }
+        }
+
+        return result;
+    }
+
 
     /// <summary>
     /// положение бота
