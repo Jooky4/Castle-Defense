@@ -26,6 +26,15 @@ public class UiController : MonoBehaviour
     [SerializeField]
     private TMP_Text textCurrentLevelPanelWin;
 
+    [Header("Cсылка UI бабки PanelWin")]
+    [SerializeField]
+    private TMP_Text textMoneyPanelWin;
+
+    [Header("Cсылка UI бабки PanelLose")]
+    [SerializeField]
+    private TMP_Text textMoneyPanelLose;
+
+
     // Update is called once per frame
     void Update()
     {
@@ -33,6 +42,8 @@ public class UiController : MonoBehaviour
         textCurrentTimer.text = GameController.Instance.currentTimerGame.ToString();
         textCurrentLevelPanelLose.text = GameController.Instance.currentLevel.ToString();
         textCurrentLevelPanelWin.text = GameController.Instance.currentLevel.ToString();
+        textMoneyPanelWin.text = GameController.Instance.currentMoney.ToString();
+        textMoneyPanelLose.text = GameController.Instance.currentMoney.ToString();
 
     }
 }

@@ -23,6 +23,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private float speedBegin = 3.0f;
 
+    [Header("Процент выпадания бота")]
+    public int percentChoiceBot = 10;
+
     [HideInInspector]
     public Vector3 lastPosition;
 

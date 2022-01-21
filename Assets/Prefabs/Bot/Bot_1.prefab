@@ -124,6 +124,7 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   animator: {fileID: 1061016581587068245}
   speedBegin: 2
+  percentChoiceBot: 80
   lastPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &4561855483470257834
 GameObject:

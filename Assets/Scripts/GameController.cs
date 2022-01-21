@@ -24,6 +24,9 @@ public class GameController : MonoBehaviour
     [Header("Мах число жизней замка")]
     public int maxHealthCastle = 20;
 
+    [Header("Мах число бабла за игру")]
+    public int maxMoneyGame = 100;
+
     [HideInInspector]
     public int currentTimerGame;
 
@@ -69,14 +72,17 @@ public class GameController : MonoBehaviour
     [HideInInspector]
     public bool isPlayGame;
 
-    //[HideInInspector]
+    [HideInInspector]
     public StateGame stateGame;
 
-    // [HideInInspector]
+    [HideInInspector]
     public int currentHealthCastle; // текущее здоровье замка
 
-    // [HideInInspector]
+    [HideInInspector]
     public int currentCountBots;   //  текущее кол-во ботов
+
+    // [HideInInspector]
+    public int currentMoney;   //  текущее кол-во бабла
 
     void Awake()
     {
@@ -93,7 +99,9 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        currentLevel = LoadLevelNumber("LevelNumber");
+        currentLevel = LoadData("LevelNumber");
+        currentMoney = LoadData("Money");
+
         if (currentLevel == 0)
         {
             currentLevel = 1;
@@ -177,6 +185,7 @@ public class GameController : MonoBehaviour
     {
         EndGame();
         currentLevel++;
+        currentMoney += maxMoneyGame;
         Debug.Log("Win Game");
         PanelWinGame.SetActive(true);
     }
@@ -206,7 +215,7 @@ public class GameController : MonoBehaviour
     /// </summary>
     /// <param name="KeyName"></param>
     /// <returns></returns>
-    public int LoadLevelNumber(string KeyName)
+    public int LoadData(string KeyName)
     {
         return PlayerPrefs.GetInt(KeyName);
     }
