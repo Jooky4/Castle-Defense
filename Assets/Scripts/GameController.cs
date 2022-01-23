@@ -99,6 +99,12 @@ public class GameController : MonoBehaviour
         currentLevel = LoadData("LevelNumber");
 
         maxHealthCastle = LoadData("MaxHealthCastle");
+
+        if (currentLevel == 0)
+        {
+            currentLevel = 1;
+        }
+
         if (maxHealthCastle == 0)
         {
             maxHealthCastle = SetRandomHealth(currentLevel);
@@ -113,10 +119,6 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        if (currentLevel == 0)
-        {
-            currentLevel = 1;
-        }
         currentCountBots = maxCountBots;
         isPlayGame = true;
         stateGame = StateGame.Start;
@@ -272,7 +274,7 @@ public class GameController : MonoBehaviour
             result = Random.Range(5, 11);
         }
 
-        Debug.Log(" result " + result);
+        Debug.Log(" Health " + result);
         return result;
     }
 
@@ -305,7 +307,7 @@ public class GameController : MonoBehaviour
             LoadScene(2);
         }
 
-        Debug.Log(" result " + result);
+        Debug.Log(" —цена " + result);
         return result;
     }
 
