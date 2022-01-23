@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.6436894, g: 0.79593897, b: 0.96622676, a: 1}
+  m_IndirectSpecularColor: {r: 0.64369506, g: 0.7959403, b: 0.9662277, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7821,6 +7821,8 @@ MonoBehaviour:
   textCurrentTimer: {fileID: 2033793531}
   textCurrentLevelPanelLose: {fileID: 1292572948}
   textCurrentLevelPanelWin: {fileID: 152971106}
+  textMoneyPanelWin: {fileID: 2013816001}
+  textMoneyPanelLose: {fileID: 459859669}
 --- !u!4 &764190086
 Transform:
   m_ObjectHideFlags: 0
@@ -12745,7 +12747,9 @@ MonoBehaviour:
   timerSpawnBots: 2
   countSpawnBots: 2
   PosYInstantiateBot: {fileID: 1347438574}
-  prefabBot: {fileID: 4561855482993794564, guid: cc5ca23193ced8745b69fc2ed5184292, type: 3}
+  prefabBot:
+  - {fileID: 4561855482993794564, guid: cc5ca23193ced8745b69fc2ed5184292, type: 3}
+  - {fileID: 3164264787590391681, guid: 2a1caa9376b96a74fb75a50dc22cf3d3, type: 3}
   poolBots: []
   bordersSpawn:
   - {fileID: 793963760}
@@ -17685,6 +17689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTimeGame: 30
   maxHealthCastle: 10
+  maxMoneyGame: 100
   currentTimerGame: 0
   spawnerBots: {fileID: 1224611185}
   spawnerBullets: {fileID: 1875992689}
@@ -17700,6 +17705,7 @@ MonoBehaviour:
   stateGame: 0
   currentHealthCastle: 0
   currentCountBots: 0
+  currentMoney: 0
 --- !u!4 &1861746748
 Transform:
   m_ObjectHideFlags: 0
