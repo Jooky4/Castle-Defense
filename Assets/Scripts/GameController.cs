@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum StateGame
 {
@@ -22,7 +23,7 @@ public class GameController : MonoBehaviour
     public int maxTimeGame = 10;
 
     [Header("Мах число жизней замка")]
-    public int maxHealthCastle = 20;
+    public int maxHealthCastle = 0;
 
     [Header("Мах число бабла за игру")]
     public int maxMoneyGame = 100;
@@ -86,26 +87,38 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        currentLevel = 1;
         Instance = this;
+        currentLevel = 1;
         PanelResult.SetActive(false);
         PanelWinGame.SetActive(false);
         PanelLoseGame.SetActive(false);
         spawnerBullets.gameObject.SetActive(false);
         spawnerBots.gameObject.SetActive(false);
         PanelStartGame.gameObject.SetActive(true);
-    }
 
-
-    void Start()
-    {
         currentLevel = LoadData("LevelNumber");
-        currentMoney = LoadData("Money");
+
+        maxHealthCastle = LoadData("MaxHealthCastle");
 
         if (currentLevel == 0)
         {
             currentLevel = 1;
         }
+
+        if (maxHealthCastle == 0)
+        {
+            maxHealthCastle = SetRandomHealth(currentLevel);
+            SaveData("MaxHealthCastle", maxHealthCastle);                            // сохраняем мах колво жизней на уровне
+        }
+
+        currentMoney = LoadData("Money");
+
+        SetLoadScene(currentLevel);
+    }
+
+
+    void Start()
+    {
         currentCountBots = maxCountBots;
         isPlayGame = true;
         stateGame = StateGame.Start;
@@ -177,26 +190,47 @@ public class GameController : MonoBehaviour
         spawnerBullets.gameObject.SetActive(false);
         spawnerBots.gameObject.SetActive(false);
         PanelResult.SetActive(false);
+        SaveData("LevelNumber", currentLevel);                            // сохраняем номер level
+        SaveData("Money", currentMoney);                                 // сохраняем колво денег
 
         Debug.Log("End Game");
     }
 
+
+    /// <summary>
+    /// Победа
+    /// </summary>
     void WinGame()
     {
-        EndGame();
         currentLevel++;
         currentMoney += maxMoneyGame;
+
+        maxHealthCastle = SetRandomHealth(currentLevel);
+        SaveData("MaxHealthCastle", maxHealthCastle);                            // сохраняем мах колво жизней на уровне
+
+        EndGame();
         Debug.Log("Win Game");
+
         PanelWinGame.SetActive(true);
     }
 
+
+    /// <summary>
+    /// Проигрыш
+    /// </summary>
     void LoseGame()
     {
         EndGame();
+
         Debug.Log("Lose Game");
         PanelLoseGame.SetActive(true);
     }
 
+
+    /// <summary>
+    /// Таймер игры
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator TimerGame()
     {
         while (currentTimerGame > 0)
@@ -208,6 +242,108 @@ public class GameController : MonoBehaviour
                 currentTimerGame--;
             }
         }
+    }
+
+
+    /// <summary>
+    /// Установка случайного значения здоровья замка
+    /// </summary>
+    /// <param name="currentLevel"></param>
+    /// <returns></returns>
+    int SetRandomHealth(int currentLevel)
+    {
+        int result = 0;
+
+        if (currentLevel >= 1 && currentLevel <= 5)
+        {
+            result = Random.Range(15, 21);
+        }
+
+        if (currentLevel >= 6 && currentLevel <= 10)
+        {
+            result = Random.Range(10, 16);
+        }
+
+        if (currentLevel >= 11 && currentLevel <= 20)
+        {
+            result = Random.Range(5, 11);
+        }
+
+        if (currentLevel > 20)
+        {
+            result = Random.Range(5, 11);
+        }
+
+        Debug.Log(" Health " + result);
+        return result;
+    }
+
+    /// <summary>
+    /// Выбор сцены для загрузки
+    /// </summary>
+    /// <param name="currentLevel"></param>
+    /// <returns></returns>
+    int SetLoadScene(int currentLevel)
+    {
+        int result = 0;
+
+        if (currentLevel >= 1 && currentLevel <= 5)
+        {
+            LoadScene(0);
+        }
+
+        if (currentLevel >= 6 && currentLevel <= 10)
+        {
+            LoadScene(1);
+        }
+
+        if (currentLevel >= 11 && currentLevel <= 20)
+        {
+            LoadScene(2);
+        }
+
+        if (currentLevel > 20)
+        {
+            LoadScene(2);
+        }
+
+        Debug.Log(" Сцена " + result);
+        return result;
+    }
+
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public void LoadScene()
+    {
+        int currentScene = SceneManager.GetActiveScene().buildIndex;   // текущая сцена
+
+        SceneManager.LoadScene(currentScene);            // текущая сцена
+
+    }
+
+    public void LoadScene(int currentScene)
+    {
+        if (currentScene != SceneManager.GetActiveScene().buildIndex)
+        {
+            SceneManager.LoadScene(currentScene);
+        }
+    }
+
+
+
+
+
+    /// <summary>
+    /// Сохранение данных
+    /// </summary>
+    /// <param name="KeyName"></param>
+    /// <param name="Value"></param>
+    public void SaveData(string KeyName, int Value)
+    {
+        PlayerPrefs.SetInt(KeyName, Value);
     }
 
     /// <summary>
