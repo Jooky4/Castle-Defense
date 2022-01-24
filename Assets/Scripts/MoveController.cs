@@ -31,6 +31,7 @@ public class MoveController : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
         rigidBody = GetComponent<Rigidbody>();
+        speedBegin = speedBegin * 2;
     }
 
     void FixedUpdate()
@@ -77,9 +78,10 @@ public class MoveController : MonoBehaviour
         // Vector3 movement = new Vector3(verticalMove, 0, horizMove) * speed;
         //transform.Translate(movement * Time.fixedDeltaTime);
 
-        speed *= 10;
+        //speed *= 5;
         Vector3 movement = new Vector3(-horizMove, 0, verticalMove) * speed;
-        rigidBody.AddForce(movement, ForceMode.Force);
+        //rigidBody.AddForce(movement);
+        rigidBody.velocity = movement;
     }
 
 }

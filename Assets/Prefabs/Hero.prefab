@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualPlayer: {fileID: 8834479276726444621}
-  speedBegin: 0.01
+  speedBegin: 4
   animator: {fileID: 8834479275849511225}
 --- !u!114 &8834479276972524535
 MonoBehaviour:

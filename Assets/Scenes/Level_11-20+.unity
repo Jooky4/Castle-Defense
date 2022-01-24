@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.64369506, g: 0.7959403, b: 0.9662277, a: 1}
+  m_IndirectSpecularColor: {r: 0.6436894, g: 0.79593897, b: 0.96622676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -20459,10 +20459,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8834479276972524534, guid: b8763bc3fe7911f4da8fb4fb4becb262, type: 3}
-      propertyPath: speedBegin
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 8834479276972524537, guid: b8763bc3fe7911f4da8fb4fb4becb262, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -20510,18 +20506,6 @@ PrefabInstance:
     - target: {fileID: 8834479276972524538, guid: b8763bc3fe7911f4da8fb4fb4becb262, type: 3}
       propertyPath: m_Name
       value: Hero (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8834479276972524539, guid: b8763bc3fe7911f4da8fb4fb4becb262, type: 3}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8834479276972524539, guid: b8763bc3fe7911f4da8fb4fb4becb262, type: 3}
-      propertyPath: m_Interpolate
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8834479276972524539, guid: b8763bc3fe7911f4da8fb4fb4becb262, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8763bc3fe7911f4da8fb4fb4becb262, type: 3}
