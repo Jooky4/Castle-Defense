@@ -20512,6 +20512,10 @@ PrefabInstance:
       value: Hero (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8834479276972524539, guid: b8763bc3fe7911f4da8fb4fb4becb262, type: 3}
+      propertyPath: m_Drag
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8834479276972524539, guid: b8763bc3fe7911f4da8fb4fb4becb262, type: 3}
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}

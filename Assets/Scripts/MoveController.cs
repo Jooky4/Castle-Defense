@@ -53,6 +53,7 @@ public class MoveController : MonoBehaviour
             {
                 animator.SetBool("Run", false);
                 speed = 0;
+                rigidBody.velocity =  Vector3.zero;
             }
             return;
         }
