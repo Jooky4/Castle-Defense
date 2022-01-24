@@ -73,11 +73,12 @@ public class MoveController : MonoBehaviour
 
         }
 
-        Vector3 movement = new Vector3(verticalMove, 0, horizMove) * speed;
+        // Vector3 movement = new Vector3(verticalMove, 0, horizMove) * speed;
+        //transform.Translate(movement * Time.fixedDeltaTime);
 
-        transform.Translate(movement * Time.fixedDeltaTime);
-        // rigidBody.AddForce(movement);
-        //rigidBody.AddForce(movement, ForceMode.Impulse);
+        speed *= 10;
+        Vector3 movement = new Vector3(-horizMove, 0, verticalMove) * speed;
+        rigidBody.AddForce(movement, ForceMode.Force);
     }
 
 }
