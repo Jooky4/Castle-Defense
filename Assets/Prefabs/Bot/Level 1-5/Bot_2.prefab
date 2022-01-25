@@ -110,7 +110,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentObject: {fileID: 3164264787590391681}
+  visualEnemy: {fileID: 3198403948593151062}
+  particleSys: {fileID: 5587595877824397157}
   timeAnimDead: 0
+  timeParticleSystem: 0.4
   maxHealthBot: 2
 --- !u!54 &8384875538081710578
 Rigidbody:
@@ -219,6 +222,7 @@ MonoBehaviour:
   animator: {fileID: 1881996252943654096}
   speedBegin: 2
   percentChoiceBot: 20
+  moneyForBot: 10
   lastPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &3164264788849367997
 PrefabInstance:

@@ -19,6 +19,9 @@ public class GameController : MonoBehaviour
 {
     public static GameController Instance;
 
+    //[HideInInspector]
+    public int countDeadBots;
+
     [Header("МАХ время игры")]
     public int maxTimeGame = 10;
 
@@ -85,6 +88,10 @@ public class GameController : MonoBehaviour
     // [HideInInspector]
     public int currentMoney;   //  текущее кол-во бабла
 
+    [HideInInspector]
+    public int allMoney;
+
+
     void Awake()
     {
         Instance = this;
@@ -111,7 +118,9 @@ public class GameController : MonoBehaviour
             SaveData("MaxHealthCastle", maxHealthCastle);                            // сохраняем мах колво жизней на уровне
         }
 
-        currentMoney = LoadData("Money");
+
+        //currentMoney = LoadData("Money");
+        allMoney = LoadData("Money");
 
         SetLoadScene(currentLevel);
     }
@@ -191,7 +200,9 @@ public class GameController : MonoBehaviour
         spawnerBots.gameObject.SetActive(false);
         PanelResult.SetActive(false);
         SaveData("LevelNumber", currentLevel);                            // сохраняем номер level
-        SaveData("Money", currentMoney);                                 // сохраняем колво денег
+
+        int saveMoney = currentMoney + allMoney;
+        SaveData("Money", saveMoney);                                 // сохраняем колво денег
 
         Debug.Log("End Game");
     }

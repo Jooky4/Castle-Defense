@@ -13,13 +13,25 @@ public class CheckBullet : MonoBehaviour
     [SerializeField]
     private Transform parentObject;    // ссылка на родителя 
 
+    [SerializeField]
+    [Header("Ссыль на визуал противника")]
+    private Transform visualEnemy;
+
     private EnemyController enemyController;
 
     private Animator animator;
 
+    [SerializeField]
+    [Header("Система частиц")]
+    private ParticleSystem particleSys;
+
     [Header("Время анимации")]
     [SerializeField]
     private float timeAnimDead;
+
+    [Header("Время проигрыша партиклов")]
+    [SerializeField]
+    private float timeParticleSystem = 0;
 
     [Header("Мах колво жизней бота")]
     [SerializeField]
@@ -64,14 +76,32 @@ public class CheckBullet : MonoBehaviour
     void Dead()
     {
         enemyController.IdleEnemy();
+
+        GameController.Instance.currentMoney += enemyController.moneyForBot;
+        GameController.Instance.countDeadBots++;
+
         if (animator)
         {
             animator.SetTrigger("Dead");
         }
 
-        StartCoroutine(DeActived());
-
+        StartCoroutine(StartParticleSystem());
     }
+
+    private IEnumerator StartParticleSystem()
+    {
+        yield return new WaitForSeconds(timeAnimDead);
+
+        if (particleSys)
+        {
+            particleSys.Play();
+        }
+
+        visualEnemy.gameObject.SetActive(false);
+
+        StartCoroutine(DeActived());
+    }
+
 
     /// <summary>
     /// выкл полностью обьект
@@ -79,7 +109,7 @@ public class CheckBullet : MonoBehaviour
     /// <returns></returns>
     private IEnumerator DeActived()
     {
-        yield return new WaitForSeconds(timeAnimDead);
+        yield return new WaitForSeconds(timeParticleSystem);
         Debug.Log("DeActived");
         GameController.Instance.currentCountBots--;
         parentObject.gameObject.SetActive(false);

@@ -129,6 +129,7 @@ MonoBehaviour:
   animator: {fileID: 1061016581587068245}
   speedBegin: 2
   percentChoiceBot: 80
+  moneyForBot: 10
   lastPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &4561855483470257834
 GameObject:
@@ -190,7 +191,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentObject: {fileID: 4561855482993794564}
+  visualEnemy: {fileID: 4090480232836924883}
+  particleSys: {fileID: 5336834301316982564}
   timeAnimDead: 0
+  timeParticleSystem: 0.4
   maxHealthBot: 1
 --- !u!54 &6987970936823642231
 Rigidbody:
@@ -531,9 +535,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 757df604761b8ef42831192c70ee1099, type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 19800004, guid: 757df604761b8ef42831192c70ee1099, type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19900000, guid: 757df604761b8ef42831192c70ee1099, type: 3}
       propertyPath: m_Materials.Array.size
@@ -613,7 +641,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 198100598952655726, guid: e473029e4c70ad543a6879b82a732f4f, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198194974674204020, guid: e473029e4c70ad543a6879b82a732f4f, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 198247871303120836, guid: e473029e4c70ad543a6879b82a732f4f, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198898497393477402, guid: e473029e4c70ad543a6879b82a732f4f, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198908399754155542, guid: e473029e4c70ad543a6879b82a732f4f, type: 3}
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
