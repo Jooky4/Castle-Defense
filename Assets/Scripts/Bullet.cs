@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
 
     //[HideInInspector]
     public bool isActive = true;
-    
+
     /// <summary>
     /// чекаем игрока
     /// </summary>
@@ -28,11 +28,16 @@ public class Bullet : MonoBehaviour
     {
         if (other.GetComponent<MoveController>())        //если это игрок
         {
-            visualBullet.gameObject.SetActive(false);   // выкл
-            Debug.Log(" Active false");
-            if (particleSys)
+            if (isActive)
             {
-                particleSys.Play();
+
+                visualBullet.gameObject.SetActive(false);   // выкл
+                Debug.Log(" Active false");
+
+                if (particleSys)
+                {
+                    particleSys.Play();
+                }
             }
         }
     }
