@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
 {
     public static GameController Instance;
 
-    //[HideInInspector]
+    [HideInInspector]
     public int countDeadBots;
 
     [Header("МАХ время игры")]
@@ -85,11 +85,17 @@ public class GameController : MonoBehaviour
     [HideInInspector]
     public int currentCountBots;   //  текущее кол-во ботов
 
-    // [HideInInspector]
+    [HideInInspector]
     public int currentMoney;   //  текущее кол-во бабла
 
     [HideInInspector]
     public int allMoney;
+
+    [HideInInspector]
+    public int currentIDSkin;   // текущий ID skin
+
+    [HideInInspector]
+    public int currentIDWeapon;   // текущий ID weapon
 
 
     void Awake()
@@ -121,6 +127,9 @@ public class GameController : MonoBehaviour
 
         //currentMoney = LoadData("Money");
         allMoney = LoadData("Money");
+        currentIDSkin = LoadData("SavedIDSkin");
+        currentIDWeapon = LoadData("SavedIDWeapon");
+        //PlayerPrefs.SetInt("SavedIDWeapon", currentIDWeapon);
 
         SetLoadScene(currentLevel);
     }

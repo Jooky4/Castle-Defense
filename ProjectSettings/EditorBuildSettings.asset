@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_1CopySolo 2.unity
     guid: 11f81d63dc31d3348b41c6618494fd9a
+  - enabled: 1
+    path: Assets/Scenes/SceneMarket.unity
+    guid: a0b882259e2a4b74abef55bfe5dee5fc
   m_configObjects: {}
