@@ -55,6 +55,7 @@ public class SpawnerBullets : MonoBehaviour
     private void InstantiateBullets()
     {
         int countBullets = (int)(countSpawnBullets * (GameController.Instance.maxTimeGame / timerSpawnBullets));
+        countBullets += GameController.Instance.countBulletsStartGame;
 
         poolBullets = new Transform[countBullets];
 
