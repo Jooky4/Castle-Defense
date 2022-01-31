@@ -17,20 +17,24 @@ public class SpawnerBullets : MonoBehaviour
     [Header("Кол-во снарядов за спавн")]
     private int countSpawnBullets;
 
-    [Header("Позиция Y снаряда")]
-    [SerializeField]
-    private Transform PosYInstantiateBullet;
+    //[Header("Позиция Y снаряда")]
+    //[SerializeField]
+    //private Transform PosYInstantiateBullet;
 
     [Header("Префаб снаряда")]
     [SerializeField]
     private Transform prefabBullet;
 
-    //[HideInInspector]
-    public Transform[] poolBullets;
+    //[SerializeField]
+    private Transform[] poolBullets;
 
     [SerializeField]
-    [Header("Массив границ спавна")]
-    public Transform[] bordersSpawn;
+    [Header("Массив точек спавна")]
+    private Transform[] pointsSpawn;
+
+    //[SerializeField]
+    //[Header("Массив границ спавна")]
+    //private Transform[] bordersSpawn;
 
     private int lastIndex;   // последний элемент массива
 
@@ -38,46 +42,67 @@ public class SpawnerBullets : MonoBehaviour
 
     void Start()
     {
-        foreach (Transform border in bordersSpawn)
-        {
-            border.gameObject.SetActive(false);
-        }
+        //foreach (Transform border in bordersSpawn)
+        //{
+        //    border.gameObject.SetActive(false);
+        //}
 
-        InstantiateBullets();
-        SetActiveBots();
+        InstantiateBullets2();
+        SetActiveBulletts();
         StartSpawn(GameController.Instance.countBulletsStartGame);
         StartCoroutine(CoroutineSpawnBullets());
     }
 
+    ///// <summary>
+    ///// создаем снаряды на поле
+    ///// </summary>
+    //private void InstantiateBullets()
+    //{
+    //    int countBullets = (int)(countSpawnBullets * (GameController.Instance.maxTimeGame / timerSpawnBullets));
+    //    countBullets += GameController.Instance.countBulletsStartGame;
+
+    //    poolBullets = new Transform[countBullets];
+
+    //    positionBullet = new Vector3(Random.Range(bordersSpawn[0].position.x, bordersSpawn[1].position.x),
+    //                                 PosYInstantiateBullet.position.y, Random.Range(bordersSpawn[0].position.z, bordersSpawn[1].position.z));
+
+    //    poolBullets[0] = Instantiate(prefabBullet, positionBullet, Quaternion.identity);
+
+    //    for (int index = 1; index < poolBullets.Length; index++)
+    //    {
+    //        for (int i = 0; i < 1000; i++)
+    //        {
+    //            positionBullet = new Vector3(Random.Range(bordersSpawn[0].position.x, bordersSpawn[1].position.x),
+    //                                 PosYInstantiateBullet.position.y, Random.Range(bordersSpawn[0].position.z, bordersSpawn[1].position.z));
+
+    //            if (SetPositionBullets(index))
+    //            {
+    //                poolBullets[index] = Instantiate(prefabBullet, positionBullet, Quaternion.identity);
+    //                //Debug.Log(" попыток = " + i);
+    //                break;
+    //            }
+    //        }
+    //    }
+    //    // Debug.Log("InstantiateBullets");
+    //}
+
     /// <summary>
     /// создаем снаряды на поле
     /// </summary>
-    private void InstantiateBullets()
+    private void InstantiateBullets2()
     {
         int countBullets = (int)(countSpawnBullets * (GameController.Instance.maxTimeGame / timerSpawnBullets));
         countBullets += GameController.Instance.countBulletsStartGame;
 
         poolBullets = new Transform[countBullets];
 
-        positionBullet = new Vector3(Random.Range(bordersSpawn[0].position.x, bordersSpawn[1].position.x),
-                                     PosYInstantiateBullet.position.y, Random.Range(bordersSpawn[0].position.z, bordersSpawn[1].position.z));
-
-        poolBullets[0] = Instantiate(prefabBullet, positionBullet, Quaternion.identity);
-
-        for (int index = 1; index < poolBullets.Length; index++)
+        for (int index = 0; index < poolBullets.Length; index++)
         {
-            for (int i = 0; i < 1000; i++)
-            {
-                positionBullet = new Vector3(Random.Range(bordersSpawn[0].position.x, bordersSpawn[1].position.x),
-                                     PosYInstantiateBullet.position.y, Random.Range(bordersSpawn[0].position.z, bordersSpawn[1].position.z));
 
-                if (SetPositionBots(index))
-                {
-                    poolBullets[index] = Instantiate(prefabBullet, positionBullet, Quaternion.identity);
-                    //Debug.Log(" попыток = " + i);
-                    break;
-                }
-            }
+            positionBullet = pointsSpawn[Random.Range(0, pointsSpawn.Length)].position;
+
+            poolBullets[index] = Instantiate(prefabBullet, positionBullet, Quaternion.identity);
+
         }
         // Debug.Log("InstantiateBullets");
     }
@@ -85,7 +110,7 @@ public class SpawnerBullets : MonoBehaviour
     /// <summary>
     /// выкл снаряды на поле
     /// </summary>
-    private void SetActiveBots()
+    private void SetActiveBulletts()
     {
         for (int index = 0; index < poolBullets.Length; index++)
         {
@@ -102,7 +127,7 @@ public class SpawnerBullets : MonoBehaviour
     /// <returns></returns>
     IEnumerator CoroutineSpawnBullets()
     {
-       
+
         while (GameController.Instance.stateGame == StateGame.Game)
         {
             yield return new WaitForSeconds(timerSpawnBullets);
@@ -116,7 +141,7 @@ public class SpawnerBullets : MonoBehaviour
     /// </summary>
     /// <param name="index"></param>
     /// <returns></returns>
-    private bool SetPositionBots(int index)
+    private bool SetPositionBullets(int index)
     {
         bool result = false;
 
@@ -172,7 +197,7 @@ public class SpawnerBullets : MonoBehaviour
 
             if (poolBullets[lastIndex] != null)
             {
-               // Debug.Log(lastIndex);
+                // Debug.Log(lastIndex);
                 poolBullets[lastIndex].gameObject.SetActive(true);
             }
             lastIndex++;
