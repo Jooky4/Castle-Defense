@@ -19338,7 +19338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerSpawnBullets: 2
-  countSpawnBullets: 3
+  countSpawnBullets: 4
   prefabBullet: {fileID: 3676524079653253356, guid: e288f751175672749959804e1d871865, type: 3}
   pointsSpawn:
   - {fileID: 481092820}
