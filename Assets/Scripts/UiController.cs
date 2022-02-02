@@ -72,9 +72,9 @@ public class UiController : MonoBehaviour
 
         int tempLevel = GameController.Instance.upgradeDobleShootLevel + 1;
         upgradeDobleShootLevel.text = tempLevel.ToString();
-        upgradeDobleShootPrice.text = GameController.Instance.upgradeDobleShootPrice.ToString();
+        upgradeDobleShootPrice.text = GameController.Instance.currentPriceDoubleShoot.ToString();
         tempLevel = GameController.Instance.upgradeSpeedHeroLevel + 1;
         upgradeSpeedHeroLevel.text = tempLevel.ToString();
-        upgradeSpeedHeroPrice.text = GameController.Instance.upgradeSpeedHeroPrice.ToString();
+        upgradeSpeedHeroPrice.text = GameController.Instance.currentPriceSpeedHero.ToString();
     }
 }

@@ -89,7 +89,7 @@ public class GameController : MonoBehaviour
     public int currentMoney;   //  текущее кол-во бабла
 
     [HideInInspector]
-    public int allMoney;
+    public int allMoney;      //всего денях
 
     [HideInInspector]
     public int currentIDSkin;   // текущий ID skin
@@ -98,16 +98,16 @@ public class GameController : MonoBehaviour
     public int currentIDWeapon;   // текущий ID weapon
 
     [HideInInspector]
-    public int upgradeDobleShootLevel;     // левел прокачки DoubleShoot
+    public int upgradeDobleShootLevel;     //  // текущий Level DoubleShoot
 
     [HideInInspector]
-    public int upgradeDobleShootPrice;    // цена прокачки DoubleShoot
+    public int currentPriceDoubleShoot;    // цена прокачки DoubleShoot
 
     [HideInInspector]
-    public int upgradeSpeedHeroLevel;      // левел прокачки SpeedHero
+    public int upgradeSpeedHeroLevel;      //  // текущий Level SpeedHero
 
     [HideInInspector]
-    public int upgradeSpeedHeroPrice;     // цена прокачки SpeedHero
+    public int currentPriceSpeedHero;     // цена прокачки SpeedHero
 
 
     void Awake()

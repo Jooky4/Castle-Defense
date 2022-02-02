@@ -14,6 +14,13 @@ public class ShotGun : MonoBehaviour
     private float timeShoot = 1.0f;
 
     [SerializeField]
+    [Header("Значение увеличения процента на двойной выстрел")]
+    private float percentMultiPlay = 0.25f;
+
+    //[SerializeField]
+    private float currentPercentMultiPlay;
+
+    [SerializeField]
     [Header("Система частиц")]
     private ParticleSystem particleSys;
 
@@ -22,6 +29,9 @@ public class ShotGun : MonoBehaviour
     public bool isFire = false;
 
     private int indexPoolBulletGun;
+
+    //[SerializeField]
+    private float percentCurrent;
 
     private void Start()
     {
@@ -35,9 +45,25 @@ public class ShotGun : MonoBehaviour
     /// <returns></returns>
     IEnumerator ShotingGun()
     {
+        float currentTimeShoot;
+
+
         //while (GameController.Instance.stateGame == StateGame.Game)
         while (true)
         {
+            currentPercentMultiPlay = percentMultiPlay * GameController.Instance.upgradeDobleShootLevel;  // расчет процента двойного выстрела
+
+            percentCurrent = Random.Range(0.0f, 100.0f);
+
+            if (percentCurrent <= currentPercentMultiPlay)
+            {
+                currentTimeShoot = 0.1f;
+            }
+            else
+            {
+                currentTimeShoot = timeShoot;
+            }
+
             if (GameController.Instance.stateGame == StateGame.Game)
             {
                 int countBulletgun = platformGun.countBulletGun;
@@ -67,7 +93,7 @@ public class ShotGun : MonoBehaviour
                     Debug.Log(" SHOTGUN ");
                 }
             }
-            yield return new WaitForSeconds(timeShoot);    // ждем 
+            yield return new WaitForSeconds(currentTimeShoot);    // ждем 
         }
     }
 }

@@ -4422,7 +4422,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 304005303}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1861746750}
+        m_TargetAssemblyTypeName: UpGradeSytem, Assembly-CSharp
+        m_MethodName: BuyUpgradeDoubleShoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &304005303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5830,7 +5842,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 447204695}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1861746750}
+        m_TargetAssemblyTypeName: UpGradeSytem, Assembly-CSharp
+        m_MethodName: BuyUpgradeSpeedHero
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &447204695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16297,6 +16321,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9204109411637862360, guid: 998f51f38ea5f044d8615f196be153d6, type: 3}
+      propertyPath: percentMultiPlay
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 998f51f38ea5f044d8615f196be153d6, type: 3}
 --- !u!4 &1350775138 stripped
@@ -21207,9 +21235,9 @@ MonoBehaviour:
   currentIDSkin: 0
   currentIDWeapon: 0
   upgradeDobleShootLevel: 0
-  upgradeDobleShootPrice: 0
+  currentPriceDoubleShoot: 0
   upgradeSpeedHeroLevel: 0
-  upgradeSpeedHeroPrice: 0
+  currentPriceSpeedHero: 0
 --- !u!4 &1861746748
 Transform:
   m_ObjectHideFlags: 0
@@ -21242,8 +21270,9 @@ MonoBehaviour:
   nextPriceDoubleShoot: 250
   startPriceSpeedHero: 300
   nextPriceSpeedHero: 150
-  upgradeDoubleShootPrice: 0
-  upgradeSpeedHeroPrice: 0
+  currentPriceDoubleShoot: 0
+  currentPriceSpeedHero: 0
+  allMoney: 0
 --- !u!1 &1875992688
 GameObject:
   m_ObjectHideFlags: 0
@@ -23774,8 +23803,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeShoot: 1
+  percentMultiPlay: 0.25
+  currentPercentMultiPlay: 0
   particleSys: {fileID: 0}
   isFire: 0
+  percentCurrent: 0
 --- !u!114 &2059542903
 MonoBehaviour:
   m_ObjectHideFlags: 0
