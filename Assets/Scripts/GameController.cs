@@ -97,6 +97,18 @@ public class GameController : MonoBehaviour
     [HideInInspector]
     public int currentIDWeapon;   // текущий ID weapon
 
+    [HideInInspector]
+    public int upgradeDobleShootLevel;     // левел прокачки DoubleShoot
+
+    [HideInInspector]
+    public int upgradeDobleShootPrice;    // цена прокачки DoubleShoot
+
+    [HideInInspector]
+    public int upgradeSpeedHeroLevel;      // левел прокачки SpeedHero
+
+    [HideInInspector]
+    public int upgradeSpeedHeroPrice;     // цена прокачки SpeedHero
+
 
     void Awake()
     {

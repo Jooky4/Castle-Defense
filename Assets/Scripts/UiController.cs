@@ -38,20 +38,43 @@ public class UiController : MonoBehaviour
     [SerializeField]
     private TMP_Text textMoneyPanelLose;
 
+    [Header("Cсылка UI Upgrade DobleShoot Level")]
+    [SerializeField]
+    private TMP_Text upgradeDobleShootLevel;
+
+    [Header("Cсылка UI Upgrade DobleShoot Price")]
+    [SerializeField]
+    private TMP_Text upgradeDobleShootPrice;
+
+    [Header("Cсылка UI Upgrade SpeedHero Level")]
+    [SerializeField]
+    private TMP_Text upgradeSpeedHeroLevel;
+
+    [Header("Cсылка UI Upgrade SpeedHero Price")]
+    [SerializeField]
+    private TMP_Text upgradeSpeedHeroPrice;
 
 
 
     // Update is called once per frame
     void Update()
     {
-        textCurrentHelth.text = GameController.Instance.currentHealthCastle.ToString();
-        textCurrentTimer.text = GameController.Instance.currentTimerGame.ToString();
-        textCurrentLevelPanelLose.text = GameController.Instance.currentLevel.ToString();
-        textCurrentLevelPanelWin.text = GameController.Instance.currentLevel.ToString();
-        textMoneyPanelWin.text = GameController.Instance.currentMoney.ToString();
-        textMoneyPanelLose.text = GameController.Instance.currentMoney.ToString();
         textMoneyPanelStartGame.text = GameController.Instance.allMoney.ToString();
 
+        textCurrentHelth.text = GameController.Instance.currentHealthCastle.ToString();
+        textCurrentTimer.text = GameController.Instance.currentTimerGame.ToString();
+        
+        textCurrentLevelPanelLose.text = GameController.Instance.currentLevel.ToString();
+        textMoneyPanelLose.text = GameController.Instance.currentMoney.ToString();
 
+        textCurrentLevelPanelWin.text = GameController.Instance.currentLevel.ToString();
+        textMoneyPanelWin.text = GameController.Instance.currentMoney.ToString();
+
+        int tempLevel = GameController.Instance.upgradeDobleShootLevel + 1;
+        upgradeDobleShootLevel.text = tempLevel.ToString();
+        upgradeDobleShootPrice.text = GameController.Instance.upgradeDobleShootPrice.ToString();
+        tempLevel = GameController.Instance.upgradeSpeedHeroLevel + 1;
+        upgradeSpeedHeroLevel.text = tempLevel.ToString();
+        upgradeSpeedHeroPrice.text = GameController.Instance.upgradeSpeedHeroPrice.ToString();
     }
 }
