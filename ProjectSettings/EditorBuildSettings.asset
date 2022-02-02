@@ -14,10 +14,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Level_1CopySolo 2.unity
     guid: 11f81d63dc31d3348b41c6618494fd9a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level 1-5.unity
     guid: 2af5df07f1dac45449dfbd66b6c4de69
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level 6-10.unity
     guid: 92dc5860d34843142803bbf0ee2775d6
   - enabled: 1
