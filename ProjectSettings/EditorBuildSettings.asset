@@ -5,11 +5,11 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level_1CopySolo.unity
     guid: 864ffb4de0b65214a8112d7eb5e46af8
-  - enabled: 0
-    path: Assets/Scenes/Level 1-5.unity
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
     guid: 2af5df07f1dac45449dfbd66b6c4de69
   - enabled: 0
     path: Assets/Scenes/Level 6-10.unity
