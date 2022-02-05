@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour
     public int maxTimeGame = 10;
 
     [Header("Мах число жизней замка")]
-    public int maxHealthCastle = 0;
+    public int maxHealthCastle = 10;
 
     [Header("Мах число бабла за игру")]
     public int maxMoneyGame = 100;
@@ -113,7 +113,7 @@ public class GameController : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        currentLevel = 1;
+        //currentLevel = 1;
         PanelResult.SetActive(false);
         PanelWinGame.SetActive(false);
         PanelLoseGame.SetActive(false);
@@ -123,18 +123,18 @@ public class GameController : MonoBehaviour
 
         currentLevel = LoadData("LevelNumber");
 
-        maxHealthCastle = LoadData("MaxHealthCastle");
+        //maxHealthCastle = LoadData("MaxHealthCastle");
 
         if (currentLevel == 0)
         {
             currentLevel = 1;
         }
 
-        if (maxHealthCastle == 0)
-        {
-            maxHealthCastle = SetRandomHealth(currentLevel);
-            SaveData("MaxHealthCastle", maxHealthCastle);                            // сохраняем мах колво жизней на уровне
-        }
+        //if (maxHealthCastle == 0)
+        //{
+        //    maxHealthCastle = SetRandomHealth(currentLevel);
+        //    SaveData("MaxHealthCastle", maxHealthCastle);                            // сохраняем мах колво жизней на уровне
+        //}
 
 
         //currentMoney = LoadData("Money");
@@ -237,8 +237,8 @@ public class GameController : MonoBehaviour
         currentLevel++;
         currentMoney += maxMoneyGame;
 
-        maxHealthCastle = SetRandomHealth(currentLevel);
-        SaveData("MaxHealthCastle", maxHealthCastle);                            // сохраняем мах колво жизней на уровне
+        //maxHealthCastle = SetRandomHealth(currentLevel);
+        //SaveData("MaxHealthCastle", maxHealthCastle);                            // сохраняем мах колво жизней на уровне
 
         EndGame();
         Debug.Log("Win Game");
@@ -288,40 +288,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-
-    /// <summary>
-    /// Установка случайного значения здоровья замка
-    /// </summary>
-    /// <param name="currentLevel"></param>
-    /// <returns></returns>
-    int SetRandomHealth(int currentLevel)
-    {
-        int result = 0;
-
-        if (currentLevel >= 1 && currentLevel <= 5)
-        {
-            result = Random.Range(15, 21);
-        }
-
-        if (currentLevel >= 6 && currentLevel <= 10)
-        {
-            result = Random.Range(10, 16);
-        }
-
-        if (currentLevel >= 11 && currentLevel <= 20)
-        {
-            result = Random.Range(5, 11);
-        }
-
-        if (currentLevel > 20)
-        {
-            result = Random.Range(5, 11);
-        }
-
-        Debug.Log(" Health " + result);
-        return result;
-    }
-
     /// <summary>
     /// Выбор сцены для загрузки
     /// </summary>
@@ -331,48 +297,52 @@ public class GameController : MonoBehaviour
     {
         int result = 0;
 
-        if (currentLevel >= 1 && currentLevel <= 5)
-        {
-            LoadScene(0);
-        }
-
-        if (currentLevel >= 6 && currentLevel <= 10)
-        {
-            LoadScene(1);
-        }
-
-        if (currentLevel >= 11 && currentLevel <= 20)
-        {
-            LoadScene(2);
-        }
-
         if (currentLevel > 20)
         {
-            LoadScene(2);
+            LoadScene(Random.Range(0, 21));
         }
-
-        Debug.Log(" Сцена " + result);
+        else
+        {
+            LoadScene(currentLevel);
+        }
         return result;
     }
 
-
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public void LoadScene()
-    {
-        int currentScene = SceneManager.GetActiveScene().buildIndex;   // текущая сцена
-
-        SceneManager.LoadScene(currentScene);            // текущая сцена
-
-    }
+    //if (currentScene != SceneManager.GetActiveScene().buildIndex)
+    //{
+    //    SceneManager.LoadScene(currentScene);
+    //}
 
     public void LoadScene(int currentScene)
     {
-        if (currentScene != SceneManager.GetActiveScene().buildIndex)
+       
+
+        int tempLoadScene = currentScene - 1;
+
+        print(" currentScene " + currentScene);
+        print(" currentLevel " + currentLevel);
+        print(" SceneManager.sceneCountInBuildSettings " + (SceneManager.sceneCountInBuildSettings - 2));
+        print(" tempLoadScene " + tempLoadScene);
+
+        if (SceneManager.GetActiveScene().buildIndex != tempLoadScene)
         {
-            SceneManager.LoadScene(currentScene);
+
+            if ((SceneManager.sceneCountInBuildSettings - 2) >= tempLoadScene)
+            {
+                tempLoadScene = currentScene - 1;
+
+                SceneManager.LoadScene(tempLoadScene);
+            }
+            else
+            {
+                return;
+                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);                          // текущая сцена
+            }
+        }
+        else
+        {
+            return;
+
         }
     }
 

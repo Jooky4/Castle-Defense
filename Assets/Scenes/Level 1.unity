@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.64369506, g: 0.7959403, b: 0.9662277, a: 1}
+  m_IndirectSpecularColor: {r: 0.6436894, g: 0.79593897, b: 0.96622676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6910,6 +6910,8 @@ MonoBehaviour:
   textMoneyPanelStartGame: {fileID: 1936309325}
   textMoneyPanelWin: {fileID: 2131035489}
   textMoneyPanelLose: {fileID: 222985653}
+  textAllMoneyPanelWin: {fileID: 0}
+  textAllMoneyPanelLose: {fileID: 0}
   upgradeDobleShootLevel: {fileID: 1397884727}
   upgradeDobleShootPrice: {fileID: 1496041034}
   upgradeSpeedHeroLevel: {fileID: 134690476}
@@ -15560,7 +15562,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countDeadBots: 0
   maxTimeGame: 30
-  maxHealthCastle: 0
+  maxHealthCastle: 30
   maxMoneyGame: 200
   currentTimerGame: 0
   spawnerBots: {fileID: 1224611185}

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.64369506, g: 0.7959403, b: 0.9662277, a: 1}
+  m_IndirectSpecularColor: {r: 0.6436894, g: 0.79593897, b: 0.96622676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9886,6 +9886,12 @@ MonoBehaviour:
   textMoneyPanelStartGame: {fileID: 310871240}
   textMoneyPanelWin: {fileID: 1958960107}
   textMoneyPanelLose: {fileID: 112748202}
+  textAllMoneyPanelWin: {fileID: 0}
+  textAllMoneyPanelLose: {fileID: 0}
+  upgradeDobleShootLevel: {fileID: 0}
+  upgradeDobleShootPrice: {fileID: 0}
+  upgradeSpeedHeroLevel: {fileID: 0}
+  upgradeSpeedHeroPrice: {fileID: 0}
 --- !u!4 &764190086
 Transform:
   m_ObjectHideFlags: 0
@@ -21187,7 +21193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countDeadBots: 0
   maxTimeGame: 30
-  maxHealthCastle: 0
+  maxHealthCastle: 30
   maxMoneyGame: 400
   currentTimerGame: 0
   spawnerBots: {fileID: 1224611185}
@@ -21208,6 +21214,10 @@ MonoBehaviour:
   allMoney: 0
   currentIDSkin: 0
   currentIDWeapon: 0
+  upgradeDobleShootLevel: 0
+  currentPriceDoubleShoot: 0
+  upgradeSpeedHeroLevel: 0
+  currentPriceSpeedHero: 0
 --- !u!4 &1861746748
 Transform:
   m_ObjectHideFlags: 0
@@ -23869,6 +23879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeShoot: 1
+  percentMultiPlay: 0.25
   particleSys: {fileID: 0}
   isFire: 0
 --- !u!114 &2059542903
