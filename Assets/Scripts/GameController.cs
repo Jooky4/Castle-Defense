@@ -89,7 +89,7 @@ public class GameController : MonoBehaviour
     public int currentMoney;   //  текущее кол-во бабла
 
     [HideInInspector]
-    public int allMoney;      //всего денях
+    public int allMoney;      // всего денях
 
     [HideInInspector]
     public int currentIDSkin;   // текущий ID skin
@@ -224,7 +224,7 @@ public class GameController : MonoBehaviour
 
         int saveMoney = currentMoney + allMoney;
         SaveData("Money", saveMoney);                                 // сохраняем колво денег
-
+        StartCoroutine(ShowAnimationMoney());
         Debug.Log("End Game");
     }
 
@@ -257,6 +257,18 @@ public class GameController : MonoBehaviour
         Debug.Log("Lose Game");
         PanelLoseGame.SetActive(true);
     }
+
+    private IEnumerator ShowAnimationMoney()
+    {
+        print("ShowAnimationMoney");
+        while (currentMoney > 0)
+        {
+            currentMoney--;
+            allMoney++;
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
 
 
     /// <summary>

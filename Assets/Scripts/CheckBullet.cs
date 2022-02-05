@@ -85,7 +85,7 @@ public class CheckBullet : MonoBehaviour
         isDead = true;
         enemyController.IdleEnemy();
 
-        GameController.Instance.currentMoney += enemyController.moneyForBot;
+        GameController.Instance.currentMoney += enemyController.moneyForBot;  // деньги за уничтожение бота
         GameController.Instance.countDeadBots++;
 
         if (animator)
