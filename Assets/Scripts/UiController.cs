@@ -38,6 +38,14 @@ public class UiController : MonoBehaviour
     [SerializeField]
     private TMP_Text textMoneyPanelLose;
 
+    [Header("Cсылка UI Все бабки PanelWin")]
+    [SerializeField]
+    private TMP_Text textAllMoneyPanelWin;
+
+    [Header("Cсылка UI Все бабки PanelLose")]
+    [SerializeField]
+    private TMP_Text textAllMoneyPanelLose;
+
     [Header("Cсылка UI Upgrade DobleShoot Level")]
     [SerializeField]
     private TMP_Text upgradeDobleShootLevel;
@@ -66,6 +74,9 @@ public class UiController : MonoBehaviour
         
         textCurrentLevelPanelLose.text = GameController.Instance.currentLevel.ToString();
         textMoneyPanelLose.text = GameController.Instance.currentMoney.ToString();
+
+        textAllMoneyPanelLose.text = GameController.Instance.allMoney.ToString();
+        textAllMoneyPanelWin.text = GameController.Instance.allMoney.ToString();
 
         textCurrentLevelPanelWin.text = GameController.Instance.currentLevel.ToString();
         textMoneyPanelWin.text = GameController.Instance.currentMoney.ToString();

@@ -37,7 +37,14 @@ public class CheckBullet : MonoBehaviour
     [SerializeField]
     private int maxHealthBot = 1;
 
-    private int currentHealthBot;
+    /// <summary>
+    /// текущее здоровье бота
+    /// </summary>
+    [HideInInspector]
+    public int currentHealthBot;    
+    
+    [HideInInspector]
+    public bool isDead;
 
     private void Start()
     {
@@ -75,9 +82,10 @@ public class CheckBullet : MonoBehaviour
     /// </summary>
     void Dead()
     {
+        isDead = true;
         enemyController.IdleEnemy();
 
-        GameController.Instance.currentMoney += enemyController.moneyForBot;
+        GameController.Instance.currentMoney += enemyController.moneyForBot;  // деньги за уничтожение бота
         GameController.Instance.countDeadBots++;
 
         if (animator)
