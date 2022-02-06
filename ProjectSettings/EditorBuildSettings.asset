@@ -9,15 +9,72 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 1.unity
     guid: 2af5df07f1dac45449dfbd66b6c4de69
   - enabled: 1
-    path: Assets/Scenes/Level 1 CopySolo.unity
-    guid: 58084d2f8f8096e4cb4b6b42031b3a8a
+    path: Assets/Scenes/Level 2.unity
+    guid: e8bc469ed03957b47bb46ef94155cfb9
   - enabled: 1
-    path: Assets/Scenes/Level 1 CopySolo 1.unity
-    guid: d790a3a31b51b66438d926ae95ec664c
+    path: Assets/Scenes/Level 3.unity
+    guid: 30ce6470c92df3f40b2cee5bc18a7be1
   - enabled: 1
-    path: Assets/Scenes/Level 1 CopySolo 2.unity
-    guid: 5571e3c0d6542cd41872740079e90b34
+    path: Assets/Scenes/Level 4.unity
+    guid: 73fe53ae926eb9544be03d2755bbeb37
+  - enabled: 1
+    path: Assets/Scenes/Level 5.unity
+    guid: e86af6130138cb94cb4430a3fbc64ac2
+  - enabled: 1
+    path: Assets/Scenes/Level 6.unity
+    guid: 40112277eb7ea9b4f8f7f9d4e149df11
+  - enabled: 1
+    path: Assets/Scenes/Level 7.unity
+    guid: 5c1b63b641c81db4886cb58d248a646a
+  - enabled: 1
+    path: Assets/Scenes/Level 8.unity
+    guid: 4ee1b72f776ea184aa97eb54764db31d
+  - enabled: 1
+    path: Assets/Scenes/Level 9.unity
+    guid: f609774ffe30fcb49b15dc4658dfa0f0
+  - enabled: 1
+    path: Assets/Scenes/Level 10.unity
+    guid: d8adc47a22568074a825681eda9ce3fd
+  - enabled: 1
+    path: Assets/Scenes/Level 11.unity
+    guid: 45676d31d82f5504a9c39b1ac444ecd7
+  - enabled: 1
+    path: Assets/Scenes/Level 12.unity
+    guid: a1d8d16c12a661a43b280ebadc9386ee
+  - enabled: 1
+    path: Assets/Scenes/Level 13.unity
+    guid: 90d2fbd5689db784b910b428c12ba46f
+  - enabled: 1
+    path: Assets/Scenes/Level 14.unity
+    guid: 12b3e6e09b326d74d9f6e8215ac0cdbe
+  - enabled: 1
+    path: Assets/Scenes/Level 15.unity
+    guid: cd5d4ab80bf449a4daebf472e871da44
+  - enabled: 1
+    path: Assets/Scenes/Level 16.unity
+    guid: bdd10b9bf35e92a4382de6ab908e6c3d
+  - enabled: 1
+    path: Assets/Scenes/Level 17.unity
+    guid: 760ecd06989c77b4696e77b3ddacae0b
+  - enabled: 1
+    path: Assets/Scenes/Level 18.unity
+    guid: e36be3ca0c1916b4b89b370de3eeacee
+  - enabled: 1
+    path: Assets/Scenes/Level 19.unity
+    guid: af02bd29dd5cc5744aef908c8cd0bbff
+  - enabled: 1
+    path: Assets/Scenes/Level 20.unity
+    guid: c2368fa389db8314690798dadcd98d6d
   - enabled: 1
     path: Assets/Scenes/SceneMarket.unity
     guid: a0b882259e2a4b74abef55bfe5dee5fc
+  - enabled: 0
+    path: Assets/Scenes/Level 1 CopySolo.unity
+    guid: 58084d2f8f8096e4cb4b6b42031b3a8a
+  - enabled: 0
+    path: Assets/Scenes/Level 1 CopySolo 1.unity
+    guid: d790a3a31b51b66438d926ae95ec664c
+  - enabled: 0
+    path: Assets/Scenes/Level 1 CopySolo 2.unity
+    guid: 5571e3c0d6542cd41872740079e90b34
   m_configObjects: {}

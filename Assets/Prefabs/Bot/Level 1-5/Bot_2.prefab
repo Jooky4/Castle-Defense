@@ -52,7 +52,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6ed7389dc6cc157418355b24d4ed743d, type: 3}
+  - {fileID: 2100000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,10 +94,10 @@ TextMesh:
   m_FontSize: 0
   m_FontStyle: 1
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 6ed7389dc6cc157418355b24d4ed743d, type: 3}
+  m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4291165952
+    rgba: 4278779783
 --- !u!114 &4127089937575883078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,7 +246,7 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   animator: {fileID: 1061016581587068245}
   speedBegin: 2
-  percentChoiceBot: 80
+  percentChoiceBot: 20
   moneyForBot: 25
   lastPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &4561855483470257834
@@ -294,7 +294,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3881406, y: 1.1187456, z: 0.28569978}
+  m_Size: {x: 0.6, y: 1.1187456, z: 0.28569978}
   m_Center: {x: -0.0002380833, y: 0.6646811, z: 0.0059522986}
 --- !u!114 &5413929809324490784
 MonoBehaviour:
@@ -401,7 +401,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
+  - {fileID: 2100000, guid: 6ed7389dc6cc157418355b24d4ed743d, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -431,9 +431,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7590904093585003909}
-  m_Text: '2
-
-'
+  m_Text: 2
   m_OffsetZ: 0
   m_CharacterSize: 0.3
   m_LineSpacing: 0
@@ -443,10 +441,10 @@ TextMesh:
   m_FontSize: 0
   m_FontStyle: 1
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
+  m_Font: {fileID: 12800000, guid: 6ed7389dc6cc157418355b24d4ed743d, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4288806664
+    rgba: 4278779689
 --- !u!114 &8569073095325451212
 MonoBehaviour:
   m_ObjectHideFlags: 0
