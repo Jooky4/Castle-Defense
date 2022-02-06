@@ -11287,8 +11287,8 @@ MonoBehaviour:
   countSpawnBots: 2
   PosYInstantiateBot: {fileID: 1347438574}
   prefabBot:
-  - {fileID: 4561855482993794564, guid: 2fd3728b235332d4ba18739a9748e4c0, type: 3}
-  - {fileID: 4561855482993794564, guid: 2fd3728b235332d4ba18739a9748e4c0, type: 3}
+  - {fileID: 3164264787590391681, guid: 6a78c856d0cffa540ab850936bed941e, type: 3}
+  - {fileID: 3164264787590391681, guid: 6a78c856d0cffa540ab850936bed941e, type: 3}
   poolBots: []
   bordersSpawn:
   - {fileID: 793963760}

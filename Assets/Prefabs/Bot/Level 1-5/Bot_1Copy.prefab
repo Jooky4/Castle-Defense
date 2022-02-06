@@ -310,10 +310,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentObject: {fileID: 4561855482993794564}
   visualEnemy: {fileID: 4090480232836924883}
+  particleSysWound: {fileID: 0}
   particleSys: {fileID: 5339166787975243290}
   timeAnimDead: 0
   timeParticleSystem: 0.4
-  maxHealthBot: 2
+  maxHealthBot: 1
   currentHealthBot: 0
   isDead: 0
 --- !u!54 &6987970936823642231
