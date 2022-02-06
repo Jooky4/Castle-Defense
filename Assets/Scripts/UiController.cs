@@ -71,6 +71,7 @@ public class UiController : MonoBehaviour
 
         textCurrentHelth.text = GameController.Instance.currentHealthCastle.ToString();
         textCurrentTimer.text = GameController.Instance.currentTimerGame.ToString();
+
         
         textCurrentLevelPanelLose.text = GameController.Instance.currentLevel.ToString();
         textMoneyPanelLose.text = GameController.Instance.currentMoney.ToString();
@@ -78,7 +79,8 @@ public class UiController : MonoBehaviour
         textAllMoneyPanelLose.text = GameController.Instance.allMoney.ToString();
         textAllMoneyPanelWin.text = GameController.Instance.allMoney.ToString();
 
-        textCurrentLevelPanelWin.text = GameController.Instance.currentLevel.ToString();
+        int textCurrentLevel = GameController.Instance.currentLevel - 1;        // показывать уровень на 1 меньше
+        textCurrentLevelPanelWin.text = textCurrentLevel.ToString();
         textMoneyPanelWin.text = GameController.Instance.currentMoney.ToString();
 
         int tempLevel = GameController.Instance.upgradeDobleShootLevel + 1;
