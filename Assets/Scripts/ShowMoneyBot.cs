@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ShowMoneyBot : MonoBehaviour
 {
@@ -10,12 +11,12 @@ public class ShowMoneyBot : MonoBehaviour
     [SerializeField]
     private EnemyController enemyController;
 
-    private TextMesh textMeshMoneyBot;
+    private TMP_Text  textMeshMoneyBot;
 
 
     void Start()
     {
-        textMeshMoneyBot = GetComponent<TextMesh>();
+        textMeshMoneyBot = GetComponent<TMP_Text>();
         textMeshMoneyBot.text = "";
     }
 
