@@ -22,7 +22,11 @@ public class CheckBullet : MonoBehaviour
     private Animator animator;
 
     [SerializeField]
-    [Header("Система частиц")]
+    [Header("Система частиц ранения Бота")]
+    private ParticleSystem particleSysWound;
+
+    [SerializeField]
+    [Header("Система частиц смерти Бота")]
     private ParticleSystem particleSys;
 
     [Header("Время анимации")]
@@ -75,7 +79,24 @@ public class CheckBullet : MonoBehaviour
         {
             Dead();
         }
+        else
+        {
+            Wound();
+        }
     }
+
+
+    /// <summary>
+    /// Ранение
+    /// </summary>
+    void Wound()
+    {
+        if (particleSysWound)
+        {
+            particleSysWound.Play();
+        }
+    }
+
 
     /// <summary>
     /// анимация смерти
